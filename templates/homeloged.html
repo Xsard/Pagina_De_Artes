@@ -7,6 +7,7 @@
     <title>Art Space</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="../scripts/login.js"></script>
 </head>
 
 <body>
@@ -14,10 +15,11 @@
         <div class="collapse navbar-collapse" id="BarraDeNavegacio">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="../templates/home.html"> Inicio <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="../templates/homeloged.html"> Inicio <span
+                            class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../templates/homeloged.html"> Acerca de</a>
+                    <a class="nav-link" href="#"> Acerca de</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"> Servicios</a>
@@ -25,14 +27,12 @@
             </ul>
             <ul class="navbar-nav my-2 my-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="login.html">Iniciar Sesión</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Registrarse</a>
+                    <a class="nav-link" href="login.html" onclick="logout()">Cerrar Sesión</a>
                 </li>
             </ul>
         </div>
     </nav>
+
 </body>
 
 </html>
