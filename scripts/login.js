@@ -3,7 +3,9 @@ function login(evt) {
     var pass = document.getElementById("InputPassword").value;
     if (email == "a@a" & pass == "a") {
         window.close();
-        window.open("homeloged.html")
+        window.open("homeloged.html");
+        evt.preventDefault();
+        return false;
     } else {
         alert("El correo y la contraseña no coinciden")
     }
