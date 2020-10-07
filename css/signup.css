@@ -1,0 +1,21 @@
+body{
+    background: url(../img/SignupBackground.jpg) no-repeat center center fixed;
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    height: 10vh;
+}
+.container{
+    background: rgba(120, 115, 129, 0.703);
+    margin-top: 100px;
+    width: 800px;
+    height: 500px;
+    border-radius: 2%;
+}
+.container .box{
+    border-radius: 50%;
+    top: 7%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
