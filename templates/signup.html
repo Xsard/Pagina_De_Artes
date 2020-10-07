@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link rel="stylesheet" href="../css/signup.css">
+  <script src="../scripts/signup.js"></script>
 </head>
 
 <body>
@@ -35,7 +36,7 @@
       </ul>
     </div>
   </nav>
-  <form class="container">
+  <form class="container" onsubmit="validaciones(event)" method="POST">
     <div class="box">
       <div class="form-row">
         <div class="form-group col-md-6">
@@ -54,7 +55,7 @@
         </div>
         <div class="form-group col-md-6">
           <label for="Pass">Confirmar contraseña</label>
-          <input type="password" class="form-control" id="Pass">
+          <input type="password" class="form-control" id="PassCom">
         </div>
       </div>
       <div class="form-row">

@@ -5,9 +5,10 @@ function login(evt) {
         window.close();
         window.open("homeloged.html");
         evt.preventDefault();
-        return false;
+        return true;
     } else {
-        alert("El correo y la contraseña no coinciden")
+        alert("El correo y la contraseña no coinciden");
+        return false;
     }
 }
 
