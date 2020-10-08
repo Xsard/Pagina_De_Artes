@@ -1,10 +1,11 @@
-.portada{
-    width:500px;
+.portada{   
+    width: 600px;
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
+    
 }
-.most-views .mas_vistos{
+.most-views{
     text-align: center;
 }
 
