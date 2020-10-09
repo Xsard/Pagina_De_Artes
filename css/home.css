@@ -8,4 +8,7 @@
 .most-views{
     text-align: center;
 }
-
+.d-block{
+    width: 800px;
+    height: 500px;
+}
