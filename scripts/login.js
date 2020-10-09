@@ -4,15 +4,10 @@ function login(evt) {
     if (email == "a@a" & pass == "a") {
         window.close();
         window.open("homeloged.html");
-        evt.preventDefault();
         return true;
     } else {
         alert("El correo y la contraseña no coinciden");
+        evt.preventDefault();
         return false;
     }
-}
-
-function logout(){
-    window.close();
-    window.open("login.html")
 }

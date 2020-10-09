@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subir Obra</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="../img/logo.png">
+    <link rel="stylesheet" href="../css/add.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <script src="../scripts/sidebar.js"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="BarraDeNavegacion">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="homeloged.html"> Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> Acerca de</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> Servicios</a>
+                </li>
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="addImg.html"> Subir Obra <span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+            <ul class="navbar-nav my-2 my-lg-0">
+                <div id="sidebar">
+                    <div class="toggle-btn" onclick="toggleBtn()">
+                        <span>&#9776;</span>
+                    </div>
+                    <ul > 
+                        <li class="nav-item">
+                            <a class="nav-link">Gestión Paises</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link">Gestión Ciudades</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link">Gestión Estilo</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link">Gestión Artistas</a>
+                        </li> 
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html" onclick="logout()">Cerrar Sesión</a>
+                        </li> 
+                    </ul>
+                </div>
+            </ul>
+        </div>
+    </nav>
+    <form class="needs-validation" novalidate>
+        <div class="form-row">
+
+            <div class="col-md-6 mb-3">
+                <label for="validationTooltip01">Nombre de la obra</label>
+                <input type="text" class="form-control" id="validationTooltip01" required>
+                <div class="valid-tooltip">
+                    Looks good!
+                </div>
+            </div>
+            <div class="col-md-6 mb-3">
+                <label for="validationTooltip04">Estilo</label>
+                <select class="custom-select" id="validationTooltip04" required>
+                    <option selected disabled value="">Estilos aquí...</option>
+                    <option>...</option>
+                </select>
+                <div class="invalid-tooltip">
+                    Please select a valid state.
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">Descripción</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <div class="custom-file col-md-12 mb-3">
+            <input type="file" class="custom-file-input" id="file-input" />
+            <label class="custom-file-label" for="file-input" style="width: 400px;">Seleccionar Archivo</label>
+        </div>
+        <div class="imgCentro">
+            <img id="imgSalida" class="center-block" width="50%" height="50%" src=""
+                style="margin-left: auto; margin-right: auto; display: none;" />
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <button class="btn btn-primary" type="submit">Submit form</button>
+    </form>
+    <script
+        src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script id="rendered-js">
+        $(window).load(function () {
+
+            $(function () {
+                $('#file-input').change(function (e) {
+                    addImage(e);
+                });
+
+                function addImage(e) {
+                    var file = e.target.files[0],
+                        imageType = /image.*/;
+
+                    if (!file.type.match(imageType))
+                        return;
+
+                    var reader = new FileReader();
+                    reader.onload = fileOnload;
+                    reader.readAsDataURL(file);
+                }
+
+                function fileOnload(e) {
+                    var result = e.target.result;
+                    $('#imgSalida').attr("src", result);
+                    document.getElementById("imgSalida").style = "display: inline;"
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

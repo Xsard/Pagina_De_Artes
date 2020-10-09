@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Art Space</title>
     <link rel="icon" type="image/png" href="../img/logo.png">
+    <link rel="stylesheet" href="../css/sidebar.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <script src="../scripts/login.js"></script>
+    <script src="../scripts/sidebar.js"></script>
 </head>
 
 <body>
-    <div >
+    <div>
         <nav class="navbar navbar-expand navbar-light bg-light">
             <div class="collapse navbar-collapse" id="collapsibleNavBar">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -26,11 +27,34 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#"> Servicios</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="addImg.html"> Subir Obra</a>
+                    </li>
+
                 </ul>
                 <ul class="navbar-nav my-2 my-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html" onclick="logout()">Cerrar Sesión</a>
-                    </li>
+                    <div id="sidebar">
+                        <div class="toggle-btn" onclick="toggleBtn()">
+                            <span>&#9776;</span>
+                        </div>
+                        <ul>
+                            <li class="nav-item">
+                                <a class="nav-link">Gestión Paises</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link">Gestión Ciudades</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link">Gestión Estilo</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link">Gestión Artistas</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="login.html" onclick="logout()">Cerrar Sesión</a>
+                            </li>
+                        </ul>
+                    </div>
                 </ul>
             </div>
         </nav>
