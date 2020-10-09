@@ -15,5 +15,13 @@
     height:900px;
 }
 .row2{
-    margin-left: initial;
+    text-align: center;
+}
+body{
+    background-size: cover;
+    background-position: center center;
+    background-image: url(https://fondosmil.com/fondo/31133.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: black;
 }
