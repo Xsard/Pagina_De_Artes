@@ -3,12 +3,25 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
-    
 }
 .most-views{
     text-align: center;
 }
 .d-block{
-    width: 800px;
     height: 500px;
+    width: 200px;
+}
+.s-block{
+    height:900px;
+}
+.row2{
+    text-align: center;
+}
+body{
+    background-size: cover;
+    background-position: center center;
+    background-image: url(https://fondosmil.com/fondo/31133.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: black;
 }
