@@ -3,12 +3,17 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
-    
 }
 .most-views{
     text-align: center;
 }
 .d-block{
-    width: 800px;
     height: 500px;
+    width: 200px;
+}
+.s-block{
+    height:900px;
+}
+.row2{
+    margin-left: initial;
 }
