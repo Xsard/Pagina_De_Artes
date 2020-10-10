@@ -4,10 +4,10 @@
     position: fixed;
     width: 300px;
     height: 100%;
-    left: 1500px;
+    left: 1550px;
 }
 #sidebar.acti{
-    left: 1300px;
+    left: 1250px;
 }
 #sidebar ul{
     margin-top: 50px;
@@ -22,8 +22,8 @@
 }
 #sidebar .toggle-btn{
     position: absolute; 
-    right: 310px;
-    top: 3px;
+    right: 330px;
+    top: 5px;
     cursor: pointer;
 }
 #sidebar .toggle-btn span{

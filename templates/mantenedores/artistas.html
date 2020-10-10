@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenedor País</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="../../img/logo.png">
+    <link rel="stylesheet" href="../../css/add.css">
+    <link rel="stylesheet" href="../../css/sidebar.css">
+    <script src="../../scripts/sidebar.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../css/mantenedores.css">
+
+    <!--Links Externos para el mantenedor -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.1/css/bootstrap.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!--Función externa para filtrado del mantenedor-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#userList').DataTable();
+        });
+    </script>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="BarraDeNavegacion">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="../homeloged.html"> Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> Acerca de</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"> Servicios</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="../addImg.html"> Subir Obra</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav my-2 my-lg-0">
+                <div id="sidebar">
+                    <div class="toggle-btn" onclick="toggleBtn()">
+                        <span>&#9776;</span>
+                    </div>
+                    <ul>
+                        <li class="nav-item">
+                            <a class="nav-link" href="pais.html">Gestión Paises</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="ciudad.html">Gestión Ciudades</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="estilos.html">Gestión Estilo</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">Gestión Artistas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html" onclick="logoutMant()">Cerrar Sesión</a>
+                        </li>
+                    </ul>
+                </div>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
+            <ul class="nav nav-tabs justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab"
+                        aria-controls="list" aria-selected="false">Lista de Artistas</a>
+                </li>
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Artistas</h4>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table id="userList" class="table table-bordered table-hover table-striped">
+                                    <thead class="thead-light">
+                                        <tr>
+                                            <th scope="col">Nombre Artístico</th>
+                                            <th scope="col">Nombres</th>
+                                            <th scope="col">Email</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">El Pepe</th>
+                                            <td>Felipe Garay</td>
+                                            <td>chikiran@gmail.com</td>
+                                            <td style="text-align-last: center;">
+                                                <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
+                                                        class="fas fa-user-times"></i></a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

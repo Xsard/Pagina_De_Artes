@@ -6,3 +6,7 @@ function logout(){
     window.close();
     window.open("login.html")
 }
+function logoutMant(){
+    window.close();
+    window.open("../login.html")
+}
