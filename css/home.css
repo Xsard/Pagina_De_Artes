@@ -18,10 +18,30 @@
     text-align: center;
 }
 body{
+    width: 90%;
+    margin: 0 auto;
+    min-width: 600px;
+    max-width: 2000px;
+
     background-size: cover;
     background-position: center center;
     background-image: url(https://fondosmil.com/fondo/31133.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-color: black;
+}
+li{
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin: 0;
+    text-align: left;
+}
+ul{
+    list-style: none;
+    letter-spacing: 1px;
+    margin: 0;
+    text-align: center;
+}
+a{
+    color:blueviolet;
 }
