@@ -11,9 +11,11 @@ body{
     background: rgba(120, 115, 129, 0.703);
     margin-top: 100px;
     width: 800px;
-    min-height: 450px;
+    min-height: 460px;
     border-radius: 2%;
     max-height: 1000px;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 .container .box{
     border-radius: 50%;
@@ -21,4 +23,16 @@ body{
     margin-left: auto;
     margin-right: auto;
     position: relative;
+}
+li{
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin: 0;
+    text-align: left;
+}
+ul{
+    list-style: none;
+    letter-spacing: 1px;
+    margin: 0;
+    text-align: center;
 }

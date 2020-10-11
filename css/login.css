@@ -24,3 +24,15 @@ body{
     margin-right: auto;
     position: relative;
 }
+li{
+    letter-spacing: 2px;
+    font-weight: 600;
+    margin: 0;
+    text-align: left;
+}
+ul{
+    list-style: none;
+    letter-spacing: 1px;
+    margin: 0;
+    text-align: center;
+}
