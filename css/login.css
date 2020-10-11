@@ -1,9 +1,10 @@
 body{
     background: url(../img/LoginBackground.jpg) no-repeat center center fixed;
-    margin: 0;
-    padding: 0;
     background-size: cover;
-    height: 10vh;
+    width: 90%;
+    margin: 0 auto;
+    min-width: 700px;
+    max-width: 2000px;
 }
 .box{
     background: rgba(120, 115, 129, 0.603);
