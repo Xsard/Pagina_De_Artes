@@ -11,52 +11,57 @@
     <link rel="stylesheet" href="../css/add.css">
     <link rel="stylesheet" href="../css/sidebar.css">
     <script src="../scripts/sidebar.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="BarraDeNavegacion">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="homeloged.html"> Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> Acerca de</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> Servicios</a>
-                </li>
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="addImg.html"> Subir Obra <span class="sr-only">(current)</span></a>
-                </li>
-            </ul>
-            <ul class="navbar-nav my-2 my-lg-0">
-                <div id="sidebar">
-                    <div class="toggle-btn" onclick="toggleBtn()">
-                        <span>&#9776;</span>
-                    </div>
-                    <ul > 
-                        <li class="nav-item">
-                            <a class="nav-link" href="mantenedores/pais.html">Gestión Paises</a>
-                        </li> 
-                        <li class="nav-item">
-                            <a class="nav-link" href="mantenedores/ciudad.html">Gestión Ciudades</a>
-                        </li> 
-                        <li class="nav-item">
-                            <a class="nav-link" href="mantenedores/estilos.html">Gestión Estilo</a>
-                        </li> 
-                        <li class="nav-item">
-                            <a class="nav-link">Gestión Artistas</a>
-                        </li> 
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.html" onclick="logout()">Cerrar Sesión</a>
-                        </li> 
-                    </ul>
-                </div>
-            </ul>
-        </div>
-    </nav>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../templates/homeloged.html"> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> Servicios</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="addImg.html"> Subir Obra <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Gestiones
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="nav-link" href="mantenedores/pais.html">Gestión Paises</a>
+                                <a class="nav-link" href="mantenedores/ciudad.html">Gestión Ciudades</a>
+                                <a class="nav-link" href="mantenedores/estilos.html">Gestión Estilo</a>
+                                <a class="nav-link" href="mantenedores/artistas.html">Gestión Artistas</a>
+                                <a class="nav-link" href="../login.html" onclick="logout()">Cerrar Sesión</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
     <form class="needs-validation" novalidate>
         <div class="form-row">
 
@@ -64,7 +69,7 @@
                 <label for="validationTooltip01">Nombre de la obra</label>
                 <input type="text" class="form-control" id="validationTooltip01" required>
                 <div class="valid-tooltip">
-                    Looks good!
+                    ¡Exelente!
                 </div>
             </div>
             <div class="col-md-6 mb-3">
@@ -74,7 +79,7 @@
                     <option>...</option>
                 </select>
                 <div class="invalid-tooltip">
-                    Please select a valid state.
+                    Seleccione un estilo válido por favor.
                 </div>
             </div>
         </div>
@@ -94,7 +99,7 @@
         <br>
         <br>
         <br>
-        <button class="btn btn-primary" type="submit">Submit form</button>
+        <button class="btn btn-primary" type="submit">Subir Obra</button>
     </form>
     <script
         src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mantenedor País</title>
+    <title>Mantenedor Ciudades</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="../../img/logo.png">
@@ -41,49 +41,44 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="BarraDeNavegacion">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="../homeloged.html"> Inicio</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> Acerca de</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#"> Servicios</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="../addImg.html"> Subir Obra</a>
-                </li>
-            </ul>
-            <ul class="navbar-nav my-2 my-lg-0">
-                <div id="sidebar">
-                    <div class="toggle-btn" onclick="toggleBtn()">
-                        <span>&#9776;</span>
-                    </div>
-                    <ul>
-                        <li class="nav-item">
-                            <a class="nav-link" href="pais.html">Gestión Paises</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="ciudad.html">Gestión Ciudades</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="estilos.html">Gestión Estilo</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link">Gestión Artistas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.html" onclick="logoutMant()">Cerrar Sesión</a>
-                        </li>
-                    </ul>
-                </div>
-            </ul>
-        </div>
-    </nav>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../homeloged.html"> Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> Acerca de</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../addImg.html"> Subir Obra</a>
+                    </li>
+                    <li>
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Gestiones
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="nav-link" href="pais.html">Gestión Países</a>
+                                <a class="nav-link" href="ciudad.html">Gestión Ciudades</a>
+                                <a class="nav-link" href="estilos.html">Gestión Estilo</a>
+                                <a class="nav-link" href="artistas.html">Gestión Artistas</a>
+                                <a class="nav-link" href="../login.html" onclick="logoutMant()">Cerrar Sesión</a>
+                            </div>
+                          </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
     <div class="container">
         <div class="mx-auto col-sm-8 main-section" id="myTab" role="tablist">
             <ul class="nav nav-tabs justify-content-end">
@@ -119,7 +114,8 @@
                                             <td>Santiago</td>
                                             <td>Chile</td>
                                             <td style="text-align-last: center;">
-                                                <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+                                                <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
+                                                        class="fas fa-user-times"></i></a>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -147,7 +143,7 @@
                                         <input class="form-control" type="text">
                                     </div>
                                 </div>
-                                <div  class="form-group row">
+                                <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">País</label>
                                     <div class="col-lg-9">
                                         <select class="custom-select" id="validationTooltip04" required>

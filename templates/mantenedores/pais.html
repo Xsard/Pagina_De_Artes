@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mantenedor País</title>
+    <title>Mantenedor Países</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="icon" type="image/png" href="../../img/logo.png">
@@ -57,30 +57,20 @@
                 <li class="nav-item">
                     <a class="nav-link" href="../addImg.html"> Subir Obra</a>
                 </li>
-            </ul>
-            <ul class="navbar-nav my-2 my-lg-0">
-                <div id="sidebar">
-                    <div class="toggle-btn" onclick="toggleBtn()">
-                        <span>&#9776;</span>
-                    </div>
-                    <ul>
-                        <li class="nav-item">
+                <li>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Gestiones
+                        </button>
+                        <div class="dropdown-menu">
                             <a class="nav-link" href="pais.html">Gestión Paises</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="ciudad.html">Gestión Ciudades</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="estilos.html">Gestión Estilo</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link">Gestión Artistas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="login.html" onclick="logoutMant()">Cerrar Sesión</a>
-                        </li>
-                    </ul>
-                </div>
+                            <a class="nav-link" href="artistas.html">Gestión Artistas</a>
+                            <a class="nav-link" href="../login.html" onclick="logoutMant()">Cerrar Sesión</a>
+                        </div>
+                      </div>
+                </li>
             </ul>
         </div>
     </nav>
@@ -116,7 +106,7 @@
                                         <tr>
                                             <th scope="row">CHI</th>
                                             <td>Chile</td>
-                                            <td>
+                                            <td style="text-align-last: center;">
                                                 <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
                                             </td>
                                         </tr>
