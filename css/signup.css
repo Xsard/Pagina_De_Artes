@@ -4,7 +4,7 @@ body{
     /*ajuste de tamaño*/
     width: 90%;
     margin: 0 auto;
-    min-width: 700px;
+    min-width: 500px;
     max-width: 2000px;
 }
 .container{
@@ -14,18 +14,19 @@ body{
     min-height: 460px;
     border-radius: 2%;
     max-height: 1000px;
-    padding-top: 10px;
+    padding-top: 30px;
     padding-bottom: 10px;
 }
 .container .box{
     border-radius: 50%;
-    top: 7%;
+    top: 10%;
     margin-left: auto;
     margin-right: auto;
     position: relative;
 }
 li{
-    letter-spacing: 2px;
+    letter-spacing: 2vmax;
+    letter-spacing: 0vmin;
     font-weight: 600;
     margin: 0;
     text-align: left;

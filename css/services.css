@@ -1,22 +1,3 @@
-.portada{   
-    width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: auto;
-}
-.most-views{
-    text-align: center;
-}
-.d-block{
-    height: 500px;
-    width: 200px;
-}
-.s-block{
-    height:900px;
-}
-.row2{
-    text-align: center;
-}
 body{
     /*ajuste de tamaño*/
     width: 90%;
@@ -42,6 +23,7 @@ ul{
     list-style: none;
     letter-spacing: 1px;
     margin: 0;
+    text-align: center;
 }
 a{
     color:blueviolet;
@@ -49,4 +31,20 @@ a{
 hr{
     border-color: white;
     border-width: initial;
+}
+.box{
+    background: rgba(120, 115, 129, 0.603);
+    max-width: 2000px;
+    min-width: 500px;
+    width: 90%;
+    min-height: 600px;
+    max-height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1%;
+    border-radius: 2%;
+
+    font-size: 1.2em;
+    padding: .8em 2em;
+    position: relative;
 }
