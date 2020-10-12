@@ -8,7 +8,9 @@ function login(evt) {
         document.getElementById("InputPassword").value = "";
         return true;
     } else {
+        evt.preventDefault();
         alert("El correo y la contraseña no coinciden");
+        document.getElementById("InputPassword").value = "";
         return false;
     }
 }
