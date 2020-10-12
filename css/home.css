@@ -50,3 +50,15 @@ hr{
     border-color: white;
     border-width: initial;
 }
+.card-img-top {
+    max-width: 550px;
+    min-width: 100px;
+    max-height: 300px;
+    min-height: 50px;
+}
+.corousel-inner{
+    max-width: 550px;
+    min-width: 100px;
+    max-height: 300px;
+    min-height: 50px;
+}
