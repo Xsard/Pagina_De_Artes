@@ -3,13 +3,13 @@ body{
     background-size: cover;
     width: 90%;
     margin: 0 auto;
-    min-width: 700px;
+    min-width: 500px;
     max-width: 2000px;
 }
 .box{
     background: rgba(120, 115, 129, 0.603);
     width: 420px;
-    height: 420px;
+    height: 380px;
     margin-left: auto;
     margin-right: auto;
     margin-top: 10%;
@@ -25,7 +25,8 @@ body{
     position: relative;
 }
 li{
-    letter-spacing: 2px;
+    letter-spacing: 2vmax;
+    letter-spacing: 0vmin;
     font-weight: 600;
     margin: 0;
     text-align: left;
