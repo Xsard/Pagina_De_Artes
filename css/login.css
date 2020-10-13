@@ -5,9 +5,10 @@ body{
     margin: 0 auto;
     min-width: 500px;
     max-width: 2000px;
+    font-weight: 600;
 }
 .box{
-    background: rgba(148, 124, 192, 0.603);
+    background: rgba(149, 192, 124, 0.603);
     width: 420px;
     height: 380px;
     margin-left: auto;
