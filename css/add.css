@@ -4,7 +4,24 @@
     margin-right: auto;
 }
 .imgCentro{
-
     margin-left: auto;
     margin-right: auto;   
+}
+body{
+    /*ajuste de tamaño*/
+    width: 90%;
+    margin: 0 auto;
+    min-width: 500px;
+    max-width: 2000px;
+    /*imagen de fondo*/
+    background-size: cover;
+    background-position: center center;
+    background-image: url(https://www.theartwolf.com/services/wallpapers/aivazovsky_wave-1280-1024.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: black;
+}
+label{
+    color: white;
+    font-weight: 600;
 }

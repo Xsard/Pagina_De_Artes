@@ -66,17 +66,18 @@
             </div>
         </nav>
     </div>
+    <br></br>
     <form class="needs-validation" novalidate>
         <div class="form-row">
 
-            <div class="col-md-6 mb-3">
+            <div class="col-md-6 mb-3" style="max-width: 510px">
                 <label for="validationTooltip01">Nombre de la obra</label>
                 <input type="text" class="form-control" id="validationTooltip01" required>
                 <div class="valid-tooltip">
                     ¡Exelente!
                 </div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="col-md-6 mb-3"  style="max-width: 510px">
                 <label for="validationTooltip04">Estilo</label>
                 <select class="custom-select" id="validationTooltip04" required>
                     <option selected disabled value="">Estilos aquí...</option>
@@ -89,7 +90,7 @@
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Descripción</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control"  style="min-width: 500px; width: 6vmin;" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
         <div class="custom-file col-md-12 mb-3">
             <input type="file" class="custom-file-input" id="file-input" />
@@ -99,11 +100,7 @@
             <img id="imgSalida" class="center-block" width="50%" height="50%" src=""
                 style="margin-left: auto; margin-right: auto; display: none;" />
         </div>
-        <br>
-        <br>
-        <br>
-        <br>
-        <button class="btn btn-primary" type="submit">Subir Obra</button>
+        <button class="btn btn-primary" style="margin-top: 5%;" type="submit">Subir Obra</button>
     </form>
     <script
         src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
