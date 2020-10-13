@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ArtSpace| Servicios</title>
+  <link rel="icon" type="image/png" href="../img/logo.png">
+
+  <!--Bootstrap-->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+    integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+    crossorigin="anonymous"></script>
+
+  <!--CSS personal-->
+  <link rel="stylesheet" href="../css/services.css">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="homeloged.html"> Inicio</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="aboudloged.html">Nosotros</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="servicesloged.html"> Servicios<span
+                        class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="addImg.html"> Subir Obra</a>
+                </li>
+                <li>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Gestiones
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="nav-link" href="mantenedores/pais.html">Gestión Paises</a>
+                            <a class="nav-link" href="mantenedores/ciudad.html">Gestión Ciudades</a>
+                            <a class="nav-link" href="mantenedores/estilos.html">Gestión Estilos</a>
+                            <a class="nav-link" href="mantenedores/artistas.html">Gestión Artistas</a>
+                            <a class="nav-link" href="login.html" onclick="logout()">Cerrar Sesión</a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+  <hr>
+  </hr>
+  <div class="box">
+    <h1 style="text-align: center; color: white; font-family: fantasy;">Servicios</h1>
+    <p style="color:white; font-size: 40px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+      En ArtSpace te ofrecemos la oportunidad de compartir tu arte con la comunidad de 
+      artistas, además de poder conocer y contactar con los artistas que más te gusten. En
+      un futuro nos gustaría ofrecer un sistema de venta y compra, para que puedas sacar beneficios de tu
+      arte en el caso que lo desees. Por favor ayúdanos a hacer crecer la comunidad y así 
+      Tendremos más beneficios para ti y todos los demás interesados.
+    </p>
+  </div>
+  <hr>
+  </hr>
+  <!--FOOTER-->
+  <footer>
+    <div class="jumbotron bg-light text-white" style="height: initial; width: auto">
+      <div class="row">
+        <div class="col-sm-7 ws-footer-col">
+          <a href="../templates/home.html">
+            <img src="../img/logo.png" class="img" style="margin-right: initial; width: 300px; height: 250px;">
+          </a>
+        </div>
+        <ul style="margin-left: initial; margin-right: initial; ">
+          <h1 style="color: black; margin-left: 20px; padding-left: 15px;">Soportes</h1>
+          <li style="margin-left: 35px;">
+            <a class="text-decoration-none" style="font-size: 25px;" href="../templates/about.html">Nosotros</a>
+          </li>
+          <li style="margin-left: 35px ;">
+            <a class="text-decoration-none" style="font-size: 25px;" href="../templates/services.html">Servicios</a>
+          </li>
+        </ul>
+        <ul style="margin-left: initial;">
+          <h1 style="color: black;margin-left: 15px; padding-left: 15px;">Herramientas</h1>
+          <li style="margin-left: 35px;">
+            <a class="text-decoration-none" style="font-size: 25px;" href="#">Artistas</a>
+          </li>
+          <li style="margin-left: 35px ;">
+            <a class="text-decoration-none" style="font-size: 25px;" href="#">Obras</a>
+          </li>
+          <li style="margin-left: 35px ;">
+            <a class="text-decoration-none" style="font-size: 25px;" href="#">Subir Obra</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  <div class="footer">
+    <div style="text-align-last: center;">
+      <p style="color: white;">© 2020 Copyright ArtSpace</p>
+    </div>
+  </div>
+  <!--FIN FOOTER-->
+
+</body>
+
+</html>
