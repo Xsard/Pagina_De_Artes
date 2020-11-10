@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ArtSpace| Nosotros</title>
-  <link rel="icon" type="image/png" href="../img/logo.png">
+  <link rel="icon" type="image/png" href="{{url_for('static', filename='img/logo.png')}}">
 
   <!--Bootstrap-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -21,7 +21,7 @@
     crossorigin="anonymous"></script>
 
   <!--CSS personal-->
-  <link rel="stylesheet" href="../css/about.css">
+  <link rel="stylesheet" href="{{url_for('static', filename='css/about.css')}}">
 
 </head>
 
@@ -34,21 +34,21 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="home.html"> Inicio</a>
+          <a class="nav-link" href="{{ url_for('home') }}"> Inicio</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link" href="about.html"> Nosotros <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{ url_for('about') }}"> Nosotros <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="services.html"> Servicios</a>
+          <a class="nav-link" href="{{ url_for('services') }}"> Servicios</a>
         </li>
       </ul>
       <ul class="navbar-nav mt-2 my-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="login.html">Iniciar Sesión</a>
+          <a class="nav-link" href="{{ url_for('login') }}">Iniciar Sesión</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="signup.html">Registrarse</a>
+          <a class="nav-link" href="{{ url_for('signup') }}">Registrarse</a>
         </li>
       </ul>
     </div>
@@ -73,7 +73,7 @@
       <div class="row">
         <div class="col-sm-7 ws-footer-col">
           <a href="../templates/home.html">
-            <img src="../img/logo.png" class="img" style="margin-right: initial; width: 300px; height: 250px;">
+            <img src="{{url_for('static', filename='img/logo.png')}}" class="img" style="margin-right: initial; width: 300px; height: 250px;">
           </a>
         </div>
         <ul style="margin-left: initial; margin-right: initial; ">

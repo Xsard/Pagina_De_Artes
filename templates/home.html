@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Art Space| Home</title>
-  <link rel="icon" type="image/png" href="../img/logo.png">
+  <link rel="icon" type="image/png" href="{{url_for('static', filename='img/logo.png')}}">
 
 
   <!--Script Carusel-->
@@ -25,7 +25,7 @@
     crossorigin="anonymous"></script>
 
   <!--CSS personal-->
-  <link rel="stylesheet" href="../css/home.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
 </head>
 
 <body>
@@ -37,10 +37,10 @@
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item active">
-          <a class="nav-link" href="home.html"> Inicio <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{{ url_for('home') }}"> Inicio <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="about.html">Nosotros</a>
+          <a class="nav-link" href="{{ url_for('about') }}">Nosotros</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="services.html">Servicios</a>
@@ -48,19 +48,20 @@
       </ul>
       <ul class="navbar-nav mt-2 my-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="login.html">Iniciar Sesión</a>
+          <a class="nav-link" href="{{ url_for('login') }}">Iniciar Sesión</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="signup.html">Registrarse</a>
+          <a class="nav-link" href="{{ url_for('signup') }}">Registrarse</a>
         </li>
       </ul>
     </div>
   </nav>
   <hr style="margin-top: auto;">
   <div class="portada">
-    <img src="../img/logo.png" class="img-fluid" alt="Resposive image">
+    <img src="{{url_for('static', filename='img/logo.png')}}" class="img-fluid" alt="Resposive image">
   </div>
-  <hr></hr>
+  <hr>
+  </hr>
   <!--CATEGORIAS-->
   <h3 style="color: white; text-align: center;">Categorías</h3>
   <div id="carouselCategorias" class="carousel slide" data-ride="carousel">
@@ -77,13 +78,16 @@
         </div>
       </div>
       <div class="carousel-item">
-        <img src="https://mott.pe/noticias/wp-content/uploads/2018/11/conoce-un-poco-mas-de-las-tecnicas-para-pintar-al-oleo-para-principiantes.png" class="s-block" alt="Oleo-img">
+        <img
+          src="https://mott.pe/noticias/wp-content/uploads/2018/11/conoce-un-poco-mas-de-las-tecnicas-para-pintar-al-oleo-para-principiantes.png"
+          class="s-block" alt="Oleo-img">
         <div class="carousel-caption d-none d-md-block">
           <h3>Oleo</h3>
         </div>
       </div>
       <div class="carousel-item">
-        <img src="https://www.blogdelfotografo.com/wp-content/uploads/2017/08/26205796500_30bebd21c8_o.jpg" class="s-block" alt="foto-img">
+        <img src="https://www.blogdelfotografo.com/wp-content/uploads/2017/08/26205796500_30bebd21c8_o.jpg"
+          class="s-block" alt="foto-img">
         <div class="carousel-caption d-none d-md-block">
           <h5>Fotografía</h5>
         </div>
@@ -121,13 +125,16 @@
               <!-- Slideshow -->
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="../img/SignupBackground.jpg" class="d-block w-100" alt="img1">
+                  <img src="{{url_for('static', filename='img/SignupBackground.jpg')}}" class="d-block w-100"
+                    alt="img1">
                   <div class="carousel-caption d-none d-md-block">
                     <h3>"Espiralico"</h3>
                   </div>
                 </div>
                 <div class="carousel-item">
-                  <img src="https://3minutosdearte.com/wp-content/uploads/2019/01/Estudio-de-color-con-cuadros-1913-mini.jpg" class="d-block w-100" alt="img2">
+                  <img
+                    src="https://3minutosdearte.com/wp-content/uploads/2019/01/Estudio-de-color-con-cuadros-1913-mini.jpg"
+                    class="d-block w-100" alt="img2">
                   <div class="carousel-caption d-none d-md-block">
                     <h3>"Persepción"</h3>
                   </div>
@@ -176,7 +183,9 @@
                   </div>
                 </div>
                 <div class="carousel-item">
-                  <img src="https://www.quo.es/wp-content/uploads/2019/10/un-artista-inserta-al-joker-y-a-batman-en-obras-de-arte-clasicas-1280x720.jpg" class="d-block w-100" alt="img4">
+                  <img
+                    src="https://www.quo.es/wp-content/uploads/2019/10/un-artista-inserta-al-joker-y-a-batman-en-obras-de-arte-clasicas-1280x720.jpg"
+                    class="d-block w-100" alt="img4">
                   <div class="carousel-caption d-none d-md-block">
                     <h3>"Una noche Jockeada"</h3>
                   </div>
@@ -194,45 +203,48 @@
           </div>
         </div>
       </div>
-    </section>
-    <!--FIN RECIENTES-->
-    <br></br>
-    <!--ARTISTAS-->
-    <section style="margin-left: initial">
-      <div class="artists">
-        <div class="row2">
-          <div class="col-sm-12">
-            <hr style="margin-top: auto;">
-            <h3 style="color: white;">Artistas Destacados</h3>         
-          </div>          
-        </div> 
-        <div class="card-deck">
-          <div class="card">
-            <img src="https://www.agora-gallery.com/advice/wp-content/uploads/Robert-Ellison.jpg" class="card-img-top resposive" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Giovanni Molina</h5>
-              <p class="card-text">"Profesor de arte, pero nuevo aquí."</p>
-              <p class="card-text" ><small class="text-muted">Last updated 3 mins ago</small></p>
-            </div>
+  </section>
+  <!--FIN RECIENTES-->
+  <br></br>
+  <!--ARTISTAS-->
+  <section style="margin-left: initial">
+    <div class="artists">
+      <div class="row2">
+        <div class="col-sm-12">
+          <hr style="margin-top: auto;">
+          <h3 style="color: white;">Artistas Destacados</h3>
+        </div>
+      </div>
+      <div class="card-deck">
+        <div class="card">
+          <img src="https://www.agora-gallery.com/advice/wp-content/uploads/Robert-Ellison.jpg"
+            class="card-img-top resposive" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Giovanni Molina</h5>
+            <p class="card-text">"Profesor de arte, pero nuevo aquí."</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
           </div>
-          <div class="card">
-            <img src="https://definicion.mx/wp-content/uploads/2015/02/Artista.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Carlos Baezas</h5>
-              <p class="card-text">"Experimentando en el arte del retrato."</p>
-              <p class="card-text"><small class="text-muted">Last updated 59 mins ago</small></p>
-            </div>
+        </div>
+        <div class="card">
+          <img src="https://definicion.mx/wp-content/uploads/2015/02/Artista.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Carlos Baezas</h5>
+            <p class="card-text">"Experimentando en el arte del retrato."</p>
+            <p class="card-text"><small class="text-muted">Last updated 59 mins ago</small></p>
           </div>
-          <div class="card">
-            <img src="https://comoobtenercredito.com/wp-content/uploads/2018/01/Elsa-Marina-Losada-artista-plastica-muralista-y-escultora-mural2.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Scarlett Riffo</h5>
-              <p class="card-text">"El arte es mi forma de escape de mi atareada vida de oficinista"</p>
-              <p class="card-text"><small class="text-muted">Last updated 1 week ago</small></p>
-            </div>
+        </div>
+        <div class="card">
+          <img
+            src="https://comoobtenercredito.com/wp-content/uploads/2018/01/Elsa-Marina-Losada-artista-plastica-muralista-y-escultora-mural2.jpg"
+            class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Scarlett Riffo</h5>
+            <p class="card-text">"El arte es mi forma de escape de mi atareada vida de oficinista"</p>
+            <p class="card-text"><small class="text-muted">Last updated 1 week ago</small></p>
           </div>
         </div>
       </div>
+    </div>
   </section>
   <!--FIN ARTISTAS-->
   <br></br>
@@ -241,8 +253,9 @@
     <div class="jumbotron bg-light text-white" style="height: initial; width: auto">
       <div class="row">
         <div class="col-sm-7 ws-footer-col">
-          <a href="../templates/home.html">
-            <img src="../img/logo.png" class="img" style="margin-right: initial; width: 300px; height: 250px;">
+          <a href="{{ url_for('home') }}">
+            <img src="{{url_for('static', filename='img/logo.png')}}" class="img"
+              style="margin-right: initial; width: 300px; height: 250px;">
           </a>
         </div>
         <ul style="margin-left: initial; margin-right: initial; ">
@@ -269,7 +282,7 @@
       </div>
     </div>
   </footer>
-  
+
   <div class="footer">
     <div style="text-align-last: center;">
       <p style="color: white;">© 2020 Copyright ArtSpace</p>
