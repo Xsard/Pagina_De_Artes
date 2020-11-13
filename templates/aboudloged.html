@@ -21,63 +21,65 @@
     crossorigin="anonymous"></script>
 
   <!--CSS personal-->
-  <link rel="stylesheet" href="../css/about.css">
+  <link rel="stylesheet" href="{{ url_for('static',filename='css.about.css')}}">
 
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
-            aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="homeloged.html"> Inicio</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="aboudloged.html">Nosotros <span
-                        class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="servicesloged.html"> Servicios</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="addImg.html"> Subir Obra</a>
-                </li>
-                <li>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Gestiones
-                        </button>
-                        <div class="dropdown-menu">
-                            <a class="nav-link" href="mantenedores/pais.html">Gestión Países</a>
-                            <a class="nav-link" href="mantenedores/ciudad.html">Gestión Ciudades</a>
-                            <a class="nav-link" href="mantenedores/estilos.html">Gestión Estilos</a>
-                            <a class="nav-link" href="mantenedores/artistas.html">Gestión Artistas</a>
-                            <a class="nav-link" href="login.html" onclick="logout()">Cerrar Sesión</a>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </nav>
-  <hr></hr>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
+      aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{{url_for('homelog')}}"> Inicio</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url_for('aboutlog')}}"> Acerca de <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('serviceslog')}}"> Servicios</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('piece')}}"> Subir Obra</a>
+        </li>
+        <li>
+          <div class="btn-group">
+            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+              aria-expanded="false">
+              Gestiones
+            </button>
+            <div class="dropdown-menu">
+              <a class="nav-link" href="mantenedores/pais.html">Gestión Países</a>
+              <a class="nav-link" href="mantenedores/ciudad.html">Gestión Ciudades</a>
+              <a class="nav-link" href="mantenedores/estilos.html">Gestión Estilos</a>
+              <a class="nav-link" href="mantenedores/artistas.html">Gestión Artistas</a>
+              <a class="nav-link" href="login.html" onclick="logout()">Cerrar Sesión</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <hr>
+  </hr>
   <div class="box">
     <h1 style="text-align: center; color: white; font-family: fantasy;">Acerca de Nosotros</h1>
-    <p style="color: yellow; font-size: 40px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
-      Hola!, nosotros somos el equipo de ArtSpace un grupo de jóvenes que viendo la 
-      necesidad de muchos artistas no tan conocidos, pero con gran potencial decidimos 
-      abrir esta página web, con la intención de generar una gran comunidad de artistas y 
+    <p
+      style="color: yellow; font-size: 40px; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+      Hola!, nosotros somos el equipo de ArtSpace un grupo de jóvenes que viendo la
+      necesidad de muchos artistas no tan conocidos, pero con gran potencial decidimos
+      abrir esta página web, con la intención de generar una gran comunidad de artistas y
       a la vez poder compartir sus obras con las demás personas que estén interesadas.
       Siéntete bienvenido a ser parte de nuestra comunidad y compartir tus trabajos, y si es
-      que no vienes a compartir algo tuyo, comparte los trabajos de los artistas que te gusten. 
+      que no vienes a compartir algo tuyo, comparte los trabajos de los artistas que te gusten.
       Sería de gran ayuda para todos.
     </p>
   </div>
-  <hr></hr>
+  <hr>
+  </hr>
   <!--FOOTER-->
   <footer>
     <div class="jumbotron bg-light text-white" style="height: initial; width: auto">
@@ -118,4 +120,5 @@
   </div>
   <!--FIN FOOTER-->
 </body>
+
 </html>

@@ -21,8 +21,8 @@
         crossorigin="anonymous"></script>
 
     <!--CSS y JS personales-->
-    <link rel="stylesheet" href="../css/add.css">
-    <script src="../scripts/sidebar.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css')}}">
+    <script src="{{ url_for('static',filename='scripts/sidebar.js')}}"></script>
     
 </head>
 
@@ -36,16 +36,16 @@
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="homeloged.html"> Inicio</a>
+                        <a class="nav-link" href="{{ url_for('homelog')}}"> Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="aboudloged.html"> Acerca de</a>
+                        <a class="nav-link" href="{{ url_for('aboutlog')}}"> Acerca de</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="servicesloged.html"> Servicios</a>
+                        <a class="nav-link" href="{{ url_for('serviceslog')}}"> Servicios</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="addImg.html"> Subir Obra <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ url_for('piece')}}"> Subir Obra <span class="sr-only">(current)</span></a>
                     </li>
                     <li>
                         <div class="btn-group">
