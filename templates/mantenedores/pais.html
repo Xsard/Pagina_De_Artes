@@ -116,29 +116,29 @@
                         </div>
                     </div>
                 </div>
-                <div class="tab-pane fade" id="form" role="tabpanel" aria-labelledby="form-tab">
+                <div class="tab-pane fade" id="form">
                     <div class="card">
                         <div class="card-header">
                             <h4>Información del País</h4>
                         </div>
                         <div class="card-body">
-                            <form class="form" role="form" autocomplete="off">
+                            <form class="form" method="POST" action="/mantenedorPais">
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Código</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="text">
+                                        <input id="txtCod" name="txtCod" class="form-control" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Nombre</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="text">
+                                        <input id="txtNom" name="txtNom" class="form-control" type="text">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-12 text-center">
                                         <input type="reset" class="btn btn-secondary" value="Cancelar">
-                                        <input type="button" class="btn btn-primary" value="Aceptar">
+                                        <input id="btnAcept" name="btnAcept" type="submit" class="btn btn-primary" value="Insert">
                                     </div>
                                 </div>
                             </form>
