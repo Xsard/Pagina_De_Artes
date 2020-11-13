@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ArtSpace| Home</title>
-  <link rel="icon" type="image/png" href="../img/logo.png">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo.png')}}">
 
   <!--Bootstrap-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -54,11 +54,11 @@
                 Gestiones
               </button>
               <div class="dropdown-menu">
-                <a class="nav-link" href="mantenedores/pais.html">Gestión Países</a>
-                <a class="nav-link" href="mantenedores/ciudad.html">Gestión Ciudades</a>
-                <a class="nav-link" href="mantenedores/estilos.html">Gestión Estilos</a>
-                <a class="nav-link" href="mantenedores/artistas.html">Gestión Artistas</a>
-                <a class="nav-link" href="login.html" onclick="logout()">Cerrar Sesión</a>
+                <a class="nav-link" href="{{ url_for('country')}}">Gestión Paises</a>
+                <a class="nav-link" href="{{ url_for('city')}}">Gestión Ciudades</a>
+                <a class="nav-link" href="{{ url_for('style')}}">Gestión Estilos</a>
+                <a class="nav-link" href="{{ url_for('artist')}}">Gestión Artistas</a>
+                <a class="nav-link" href="{{ url_for('login')}}" onclick="logout()">Cerrar Sesión</a>
               </div>
             </div>
           </li>
@@ -68,7 +68,7 @@
   </div>
   <hr style="margin-top: auto;">
   <div class="portada">
-    <img src="../img/logo.png" class="img-fluid" alt="Resposive image">
+    <img src="{{url_for('static', filename='img/logo.png')}}" class="img-fluid" alt="Resposive image">
   </div>
   <hr>
   </hr>
@@ -135,7 +135,7 @@
               <!-- Slideshow -->
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <img src="../img/SignupBackground.jpg" class="d-block w-100" alt="img1">
+                  <img src="{{url_for('static', filename='img/SignupBackground.jpg')}}" class="d-block w-100" alt="img1">
                   <div class="carousel-caption d-none d-md-block">
                     <h3>"Espiralico"</h3>
                   </div>
@@ -236,10 +236,10 @@
         </div>
         <div class="card">
           <img
-            src="https://lh3.googleusercontent.com/proxy/IcLtF2Bq8zWu_ix4F8sgY_wyFx_jrUndHJdFKBubMbwhjoOwQY05yKpQ7wjUveruRb25W732n60bO9tA0sFMGX5s_42PD4kCbDs48-npsJmKFg1hzgrTmrYz"
+            src="https://definicion.mx/wp-content/uploads/2015/02/Artista.jpg"
             class="card-img-top" alt="...">
           <div class="card-body">
-            <h5 class="card-title">Marcos Guerrero</h5>
+            <h5 class="card-title">Carlos Baezas</h5>
             <p class="card-text">"Experimentando en el arte del retrato."</p>
             <p class="card-text"><small class="text-muted">Last updated 59 mins ago</small></p>
           </div>
@@ -263,36 +263,24 @@
   <footer>
     <div class="jumbotron bg-light text-white" style="height: initial; width: auto">
       <div class="row">
-        <div class="col-sm-7 ws-footer-col">
-          <a href="../templates/home.html">
-            <img src="../img/logo.png" class="img" style="margin-right: initial; width: 300px; height: 250px;">
+        <div class="col-sm-9 ws-footer-col">
+          <a href="{{ url_for('homelog') }}">
+            <img src="{{url_for('static', filename='img/logo.png')}}" class="img"
+              style="margin-right: initial; width: 300px; height: 250px;">
           </a>
         </div>
-        <ul style="margin-left: initial; margin-right: initial; ">
+        <ul style="margin-right:initial;">
           <h1 style="color: black; margin-left: 20px; padding-left: 15px;">Soportes</h1>
           <li style="margin-left: 35px;">
-            <a class="text-decoration-none" style="font-size: 25px;" href="../templates/about.html">Nosotros</a>
+            <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('aboutlog') }}">Nosotros</a>
           </li>
           <li style="margin-left: 35px ;">
-            <a class="text-decoration-none" style="font-size: 25px;" href="../templates/services.html">Servicios</a>
-          </li>
-        </ul>
-        <ul style="margin-left: initial;">
-          <h1 style="color: black;margin-left: 15px; padding-left: 15px;">Herramientas</h1>
-          <li style="margin-left: 35px;">
-            <a class="text-decoration-none" style="font-size: 25px;" href="#">Artistas</a>
-          </li>
-          <li style="margin-left: 35px ;">
-            <a class="text-decoration-none" style="font-size: 25px;" href="#">Obras</a>
-          </li>
-          <li style="margin-left: 35px ;">
-            <a class="text-decoration-none" style="font-size: 25px;" href="#">Subir Obra</a>
+            <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('serviceslog') }}">Servicios</a>
           </li>
         </ul>
       </div>
     </div>
   </footer>
-
   <div class="footer">
     <div style="text-align-last: center;">
       <p style="color: white;">© 2020 Copyright ArtSpace</p>

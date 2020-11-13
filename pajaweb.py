@@ -29,7 +29,7 @@ def homelog():
 
 @app.route('/aboutloged')
 def aboutlog():
-    return render_template('aboutloged.html')
+    return render_template('aboudloged.html')
 
 @app.route('/servicesloged')
 def serviceslog():
@@ -41,7 +41,7 @@ def piece():
 
 
 @app.route('/paises')
-def county():
+def country():
     return render_template('mantenedores/pais.html')
 
 @app.route('/ciudad')
@@ -70,7 +70,7 @@ def MantenedorPais():
                 MantenedorPaises.insert(auxPais)
         except:
             print('Error')
-    return county()
+    return country()
 
 if __name__ == '__main__':
     app.run(debug=True)
