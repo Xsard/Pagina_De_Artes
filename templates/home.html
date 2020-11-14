@@ -9,7 +9,7 @@
 
 
   <!--Script Carusel-->
-  <script src="../scripts/home.js"></script>
+  <script src="{{ url_for('static', filename='scripts/home.js') }}"></script>
 
   <!--Bootstrap-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -43,7 +43,7 @@
           <a class="nav-link" href="{{ url_for('about') }}">Nosotros</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="services.html">Servicios</a>
+          <a class="nav-link" href="{{ url_for('services') }}">Servicios</a>
         </li>
       </ul>
       <ul class="navbar-nav mt-2 my-lg-0">
@@ -184,8 +184,7 @@
                 </div>
                 <div class="carousel-item">
                   <img
-                    src="https://www.quo.es/wp-content/uploads/2019/10/un-artista-inserta-al-joker-y-a-batman-en-obras-de-arte-clasicas-1280x720.jpg"
-                    class="d-block w-100" alt="img4">
+                    src="https://www.quo.es/wp-content/uploads/2019/10/un-artista-inserta-al-joker-y-a-batman-en-obras-de-arte-clasicas-1280x720.jpg" class="d-block w-100" alt="img4">
                   <div class="carousel-caption d-none d-md-block">
                     <h3>"Una noche Jockeada"</h3>
                   </div>
@@ -252,37 +251,24 @@
   <footer>
     <div class="jumbotron bg-light text-white" style="height: initial; width: auto">
       <div class="row">
-        <div class="col-sm-7 ws-footer-col">
+        <div class="col-sm-9 ws-footer-col">
           <a href="{{ url_for('home') }}">
             <img src="{{url_for('static', filename='img/logo.png')}}" class="img"
               style="margin-right: initial; width: 300px; height: 250px;">
           </a>
         </div>
-        <ul style="margin-left: initial; margin-right: initial; ">
+        <ul style="margin-right:initial;">
           <h1 style="color: black; margin-left: 20px; padding-left: 15px;">Soportes</h1>
           <li style="margin-left: 35px;">
-            <a class="text-decoration-none" style="font-size: 25px;" href="../templates/about.html">Nosotros</a>
+            <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('about') }}">Nosotros</a>
           </li>
           <li style="margin-left: 35px ;">
-            <a class="text-decoration-none" style="font-size: 25px;" href="../templates/services.html">Servicios</a>
-          </li>
-        </ul>
-        <ul style="margin-left: initial;">
-          <h1 style="color: black;margin-left: 15px; padding-left: 15px;">Herramientas</h1>
-          <li style="margin-left: 35px;">
-            <a class="text-decoration-none" style="font-size: 25px;" href="#">Artistas</a>
-          </li>
-          <li style="margin-left: 35px ;">
-            <a class="text-decoration-none" style="font-size: 25px;" href="#">Obras</a>
-          </li>
-          <li style="margin-left: 35px ;">
-            <a class="text-decoration-none" style="font-size: 25px;" href="#">Subir Obra</a>
+            <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('services') }}">Servicios</a>
           </li>
         </ul>
       </div>
     </div>
   </footer>
-
   <div class="footer">
     <div style="text-align-last: center;">
       <p style="color: white;">© 2020 Copyright ArtSpace</p>

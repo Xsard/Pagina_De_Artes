@@ -29,7 +29,7 @@ def homelog():
 
 @app.route('/aboutloged')
 def aboutlog():
-    return render_template('aboutloged.html')
+    return render_template('aboudloged.html')
 
 @app.route('/servicesloged')
 def serviceslog():
@@ -76,7 +76,7 @@ def MantenedorPais(id):
                 print(auxCod+auxNom)
                 MantenedorPaises.update(auxCod,auxNom)
         except:
-            print('xd')
+            print('Error')
     elif id:
         try:
             MantenedorPaises.deleteWhere(id)

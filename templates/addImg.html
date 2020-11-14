@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArtSpace| Subir Obra</title>
-    <link rel="icon" type="image/png" href="../img/logo.png">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/logo.png')}}">
 
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -54,11 +54,11 @@
                                 Gestiones
                             </button>
                             <div class="dropdown-menu">
-                                <a class="nav-link" href="mantenedores/pais.html">Gestión Países</a>
-                                <a class="nav-link" href="mantenedores/ciudad.html">Gestión Ciudades</a>
-                                <a class="nav-link" href="mantenedores/estilos.html">Gestión Estilos</a>
-                                <a class="nav-link" href="mantenedores/artistas.html">Gestión Artistas</a>
-                                <a class="nav-link" href="login.html" onclick="logout()">Cerrar Sesión</a>
+                                <a class="nav-link" href="{{ url_for('country')}}">Gestión Paises</a>
+                                <a class="nav-link" href="{{ url_for('city')}}">Gestión Ciudades</a>
+                                <a class="nav-link" href="{{ url_for('style')}}">Gestión Estilos</a>
+                                <a class="nav-link" href="{{ url_for('artist')}}">Gestión Artistas</a>
+                                <a class="nav-link" href="{{ url_for('login')}}" onclick="logout()">Cerrar Sesión</a>
                             </div>
                         </div>
                     </li>
@@ -71,14 +71,14 @@
         <div class="form-row">
 
             <div class="col-md-6 mb-3" style="max-width: 510px">
-                <label for="validationTooltip01">Nombre de la obra</label>
+                <label for="validationTooltip01" style="color: white;">Nombre de la obra</label>
                 <input type="text" class="form-control" id="validationTooltip01" required>
                 <div class="valid-tooltip">
                     ¡Exelente!
                 </div>
             </div>
             <div class="col-md-6 mb-3"  style="max-width: 510px">
-                <label for="validationTooltip04">Estilo</label>
+                <label for="validationTooltip04" style="color: white;">Estilo</label>
                 <select class="custom-select" id="validationTooltip04" required>
                     <option selected disabled value="">Estilos aquí...</option>
                     <option>...</option>
@@ -89,7 +89,7 @@
             </div>
         </div>
         <div class="form-group">
-            <label for="exampleFormControlTextarea1">Descripción</label>
+            <label for="exampleFormControlTextarea1" style="color: white;">Descripción</label>
             <textarea class="form-control"  style="min-width: 500px; width: 6vmin;" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
         <div class="custom-file col-md-12 mb-3">

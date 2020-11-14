@@ -71,30 +71,19 @@
   <footer>
     <div class="jumbotron bg-light text-white" style="height: initial; width: auto">
       <div class="row">
-        <div class="col-sm-7 ws-footer-col">
-          <a href="../templates/home.html">
-            <img src="{{url_for('static', filename='img/logo.png')}}" class="img" style="margin-right: initial; width: 300px; height: 250px;">
+        <div class="col-sm-9 ws-footer-col">
+          <a href="{{ url_for('home') }}">
+            <img src="{{url_for('static', filename='img/logo.png')}}" class="img"
+              style="margin-right: initial; width: 300px; height: 250px;">
           </a>
         </div>
-        <ul style="margin-left: initial; margin-right: initial; ">
+        <ul style="margin-right:initial;">
           <h1 style="color: black; margin-left: 20px; padding-left: 15px;">Soportes</h1>
           <li style="margin-left: 35px;">
-            <a class="text-decoration-none" style="font-size: 25px;" href="../templates/about.html">Nosotros</a>
+            <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('about') }}">Nosotros</a>
           </li>
           <li style="margin-left: 35px ;">
-            <a class="text-decoration-none" style="font-size: 25px;" href="../templates/services.html">Servicios</a>
-          </li>
-        </ul>
-        <ul style="margin-left: initial;">
-          <h1 style="color: black;margin-left: 15px; padding-left: 15px;">Herramientas</h1>
-          <li style="margin-left: 35px;">
-            <a class="text-decoration-none" style="font-size: 25px;" href="#">Artistas</a>
-          </li>
-          <li style="margin-left: 35px ;">
-            <a class="text-decoration-none" style="font-size: 25px;" href="#">Obras</a>
-          </li>
-          <li style="margin-left: 35px ;">
-            <a class="text-decoration-none" style="font-size: 25px;" href="#">Subir Obra</a>
+            <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('services') }}">Servicios</a>
           </li>
         </ul>
       </div>

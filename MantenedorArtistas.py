@@ -15,7 +15,7 @@ def insert(artista):
     try:
         with conn.cursor() as cursor:
             nonQuery = "INSERT INTO ARTISTA(ID_CIUDAD,ID_ARTISTA, EMAIL_NEGOCIOS, NOMBRES, NOMBRE_ARTISTICO, EDAD, EMAIL) VALUES (%s,%s,%s,%s,%s,%s,%s)"
-            cursor.execute(nonQuery,(artista.codigoCiudad,artista.codigo,artista.nombres,artista.emailNegocios,artista.nombreArtistico,artista.edad,artista.email))
+            cursor.execute(nonQuery,(artista.codigoCiudad, artista.codigo,artista.emailNegocios,artista.nombres,artista.nombreArtistico,artista.edad,artista.email))
         conn.commit()
     except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:
         print("Ocurrió un error a la hora de insertar",e)
