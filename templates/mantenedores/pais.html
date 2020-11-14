@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArtSpace| Mantenedor Países</title>
     <link rel="icon" type="image/png" href="../../img/logo.png">
-    
+
     <!--Links Externos para el mantenedor -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -30,12 +30,51 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <!--CSS-->
-    <link rel="stylesheet" type="text/css" href="../../css/mantenedores.css">
+
 
     <!--Función externa para filtrado del mantenedor-->
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#userList').DataTable();
+            $('#userList').DataTable({
+                language: {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "Último",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "colvis": "Visibilidad"
+                    }
+                }
+            });
+        });
+
+        $(document).on("click", ".btnEditar", function () {
+            fila = $(this).closest("tr");
+            cod = fila.find('th:eq(0)').text();
+            nom = fila.find('td:eq(0)').text();
+            console.log(cod)
+            console.log(nom)
+            $("#txtCodEdit").val(cod.trim())           
+            $("#txtNomEdit").val(nom.trim())
         });
     </script>
 </head>
@@ -59,8 +98,9 @@
                 </li>
                 <li>
                     <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Gestiones
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Gestiones
                         </button>
                         <div class="dropdown-menu">
                             <a class="nav-link" href="pais.html">Gestión Países</a>
@@ -69,7 +109,7 @@
                             <a class="nav-link" href="artistas.html">Gestión Artistas</a>
                             <a class="nav-link" href="../login.html" onclick="logoutMant()">Cerrar Sesión</a>
                         </div>
-                      </div>
+                    </div>
                 </li>
             </ul>
         </div>
@@ -94,22 +134,32 @@
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table id="userList" class="table table-bordered table-hover table-striped">
+                                <table id="userList" class="table table-bordered table-hover table-striped ">
                                     <thead class="thead-light">
                                         <tr>
                                             <th scope="col">ID</th>
                                             <th scope="col">Nombre</th>
                                             <th></th>
+                                            <th></th>
+
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {% for country in countries %}
                                         <tr>
-                                            <th scope="row">CHI</th>
-                                            <td>Chile</td>
-                                            <td style="text-align-last: center;">
-                                                <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i class="fas fa-user-times"></i></a>
+                                            <th scope="row"> {{country.0}} </th>
+                                            <td> {{country.1}} </td>
+                                            <td>
+                                                <a class="nav btnEditar" data-toggle="tab" href="#formEdit"><i
+                                                        class="fas fa-edit"></i></a>
+                                            </td>
+                                            <td>
+                                                <a class="nav justify-content-center"
+                                                    href="/mantenedorPais/{{country.0}}"><i
+                                                        class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
@@ -138,7 +188,38 @@
                                 <div class="form-group row">
                                     <div class="col-lg-12 text-center">
                                         <input type="reset" class="btn btn-secondary" value="Cancelar">
-                                        <input id="btnAcept" name="btnAcept" type="submit" class="btn btn-primary" value="Insert">
+                                        <input id="btnAcept" name="btnAcept" type="submit" class="btn btn-primary"
+                                            value="Insertar">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" name="formEdit" id="formEdit">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Información del País</h4>
+                        </div>
+                        <div class="card-body">
+                            <form class="form" method="POST" action="/mantenedorPais">
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Código</label>
+                                    <div class="col-lg-9">
+                                        <input id="txtCodEdit" name="txtCodEdit" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Nombre</label>
+                                    <div class="col-lg-9">
+                                        <input id="txtNomEdit" name="txtNomEdit" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-12 text-center">
+                                        <input type="reset" class="btn btn-secondary" value="Cancelar">
+                                        <input id="btnEditar" name="btnAcept" type="submit" class="btn btn-primary"
+                                            value="Editar">
                                     </div>
                                 </div>
                             </form>
@@ -146,10 +227,8 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
-
 </body>
 
 </html>

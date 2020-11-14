@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, flash, redirect, url_for
 import Paises
 import MantenedorPaises
 app = Flask(__name__)
@@ -41,8 +41,9 @@ def piece():
 
 
 @app.route('/paises')
-def county():
-    return render_template('mantenedores/pais.html')
+def country():
+    datos = MantenedorPaises.selectAll()
+    return render_template('mantenedores/pais.html', countries = datos)
 
 @app.route('/ciudad')
 def city():
@@ -58,19 +59,30 @@ def artist():
 #Mantenedores 
 
 #Mantenedor País
-@app.route('/mantenedorPais', methods=['POST'])
-def MantenedorPais():
+@app.route('/mantenedorPais', defaults={'id': None}, methods=['POST'])
+@app.route('/mantenedorPais/<string:id>')
+def MantenedorPais(id):
     if request.method == 'POST':
         try:
             auxBtnInsert = request.form['btnAcept']
-            if auxBtnInsert == 'Insert':
+            if auxBtnInsert == 'Insertar':
                 auxCod = request.form['txtCod']
                 auxNom = request.form['txtNom']
                 auxPais = Paises.Pais(auxCod,auxNom)
                 MantenedorPaises.insert(auxPais)
+            elif auxBtnInsert == 'Editar':
+                auxCod = request.form['txtCodEdit']
+                auxNom = request.form['txtNomEdit']
+                print(auxCod+auxNom)
+                MantenedorPaises.update(auxCod,auxNom)
         except:
-            print('Error')
-    return county()
+            print('xd')
+    elif id:
+        try:
+            MantenedorPaises.deleteWhere(id)
+        except:
+            print("Error")
+    return redirect(url_for('country'))
 
 if __name__ == '__main__':
     app.run(debug=True)
