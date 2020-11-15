@@ -1,10 +1,5 @@
 from flask import Flask, render_template, request, flash, redirect, url_for
-import Paises
-import MantenedorPaises
-import Ciudades
-import MantenedorCiudades
-import Estilos
-import MantenedorEstilos
+import Paises, MantenedorPaises, Ciudades, MantenedorCiudades, Estilos, MantenedorEstilos
 
 app = Flask(__name__)
 
@@ -104,8 +99,18 @@ def MantenedorCiudad(id):
                 auxPais = request.form.get('txtPais')
                 auxCiudad = Ciudades.Ciudad(auxCod,auxNom,auxPais)
                 MantenedorCiudades.insert(auxCiudad)
+            elif auxBtnInsert == "Editar":
+                auxCod = request.form['txtCodEdit']
+                auxNom = request.form['txtNomEdit']
+                print(auxCod+auxNom)
+                MantenedorCiudades.update(auxCod,auxNom)
         except:
             print('Error')
+    elif id:
+        try:
+            MantenedorCiudades.deleteWhere(id)
+        except:
+            print("Error")
     return redirect(url_for('city'))
 
 if __name__ == '__main__':
