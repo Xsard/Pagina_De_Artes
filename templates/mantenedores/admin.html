@@ -111,17 +111,25 @@
                                             <th scope="col">Apellido Materno</th>
                                             <th scope="col">Email</th>
                                             <th></th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {% for admin in Admins %}
+                                        {% for admin in admins %}
                                         <tr>
                                             <th scope="row" style="text-align-last: center;">{{admin.0}}</th>
                                             <td>{{admin.1}}</td>
                                             <td>{{admin.2}}</td>
-                                            <td style="text-align-last: center;">
-                                                <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                                        class="fas fa-user-times"></i></a>
+                                            <td>{{admin.3}}</td>
+                                            <td>{{admin.4}}</td>
+                                            <td>
+                                                <a class="nav justify-content-center btnEditar" data-toggle="tab" href="#formEdit"><i
+                                                        class="fas fa-edit"></i></a>
+                                            </td>
+                                            <td>
+                                                <a class="nav justify-content-center" 
+                                                    href="/mantenedorCiudad/{{admin.0}}"><i
+                                                        class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         {% endfor %}                                        
