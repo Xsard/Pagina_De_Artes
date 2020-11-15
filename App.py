@@ -3,6 +3,8 @@ import Paises
 import MantenedorPaises
 import Ciudades
 import MantenedorCiudades
+import Estilos
+import MantenedorEstilos
 
 app = Flask(__name__)
 
@@ -45,18 +47,19 @@ def piece():
 
 @app.route('/paises')
 def country():
-    datos = MantenedorPaises.selectAll()
-    return render_template('mantenedores/pais.html', countries = datos)
+    datosPais = MantenedorPaises.selectAll()
+    return render_template('mantenedores/pais.html', countries = datosPais)
 
 @app.route('/ciudad')
 def city():
-    datos = MantenedorPaises.selectAll()
-    masDatos = MantenedorCiudades.selectAll()
-    return render_template('mantenedores/ciudad.html', countries = datos, cities = masDatos)
+    datosPais = MantenedorPaises.selectAll()
+    datosCiudad = MantenedorCiudades.selectAll()
+    return render_template('mantenedores/ciudad.html', countries = datosPais, cities = datosCiudad)
 
 @app.route('/estilos')
 def style():
-    return render_template('mantenedores/estilos.html')
+    datosEstilo = MantenedorEstilos.selectAll()
+    return render_template('mantenedores/estilos.html', styles = datosEstilo)
 
 @app.route('/artistas')
 def artist():

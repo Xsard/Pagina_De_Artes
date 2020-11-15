@@ -14,8 +14,8 @@ def insert(estilo):
     conn = connection()
     try:
         with conn.cursor() as cursor:
-            nonQuery = "INSERT INTO ESTILO(COD_ESTILO, NOMBRE, DESCRIPCION) VALUES (%s,%s,%s)"
-            cursor.execute(nonQuery,(estilo.codigo,estilo.nombre,estilo.descripcion))
+            nonQuery = "INSERT INTO ESTILO(COD_ESTILO, NOMBRE) VALUES (%s,%s)"
+            cursor.execute(nonQuery,(estilo.codigo,estilo.nombre))
         conn.commit()
     except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:
         print("Ocurrió un error a la hora de insertar",e)
