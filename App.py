@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, flash, redirect, url_for
-import Paises, MantenedorPaises, Ciudades, MantenedorCiudades, Estilos, MantenedorEstilos
+import Paises, MantenedorPaises, Ciudades, MantenedorCiudades, Estilos, MantenedorEstilos, Administradores, MantenedorAdministradores
 
 app = Flask(__name__)
 
@@ -58,7 +58,9 @@ def style():
 
 @app.route('/admin')
 def admin():
-    return render_template('mantenedores/admin.html')
+    datosAdmin = MantenedorAdministradores.selectAll()
+    return render_template('mantenedores/admin.html', admins = datosAdmin)
+
 #Mantenedores 
 
 #Mantenedor País
