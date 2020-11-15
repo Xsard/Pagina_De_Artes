@@ -15,7 +15,7 @@ def insert(ciudad):
     try:
         with conn.cursor() as cursor:
             nonQuery = "INSERT INTO CIUDAD(ID_CIUDAD, NOMBRE_CIUDAD, ID_PAIS) VALUES (%s,%s,%s)"
-            cursor.execute(nonQuery,(ciudad.codigo,ciudad.nombre,ciudad.idpais))
+            cursor.execute(nonQuery,(ciudad.codigo,ciudad.nombre,ciudad.codigoPais))
         conn.commit()
     except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:
         print("Ocurrió un error a la hora de insertar",e)

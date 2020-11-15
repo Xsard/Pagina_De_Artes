@@ -51,7 +51,8 @@ def country():
 @app.route('/ciudad')
 def city():
     datos = MantenedorPaises.selectAll()
-    return render_template('mantenedores/ciudad.html', countries = datos)
+    masDatos = MantenedorCiudades.selectAll()
+    return render_template('mantenedores/ciudad.html', countries = datos, cities = masDatos)
 
 @app.route('/estilos')
 def style():
@@ -98,7 +99,8 @@ def MantenedorCiudad(id):
                 auxCod = request.form['txtCod']
                 auxNom = request.form['txtNom']
                 auxPais = request.form.get('txtPais')
-                print(auxPais+auxCod+auxNom)
+                auxCiudad = Ciudades.Ciudad(auxCod,auxNom,auxPais)
+                MantenedorCiudades.insert(auxCiudad)
         except:
             print('Error')
     return redirect(url_for('city'))
