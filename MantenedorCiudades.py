@@ -26,7 +26,7 @@ def selectAll():
     conn = connection()
     try:
         with conn.cursor() as cursor:
-            cursor.execute("SELECT * FROM CIUDAD")
+            cursor.execute("SELECT ID_CIUDAD,NOMBRE_CIUDAD,NOMBRE_PAIS FROM CIUDAD CIU JOIN PAIS PAI ON(CIU.ID_PAIS=PAI.ID_PAIS)")
             data = cursor.fetchall()
             return data
     except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:

@@ -61,9 +61,9 @@ def style():
     datosEstilo = MantenedorEstilos.selectAll()
     return render_template('mantenedores/estilos.html', styles = datosEstilo)
 
-@app.route('/artistas')
-def artist():
-    return render_template('mantenedores/artistas.html')
+@app.route('/admin')
+def admin():
+    return render_template('mantenedores/admin.html')
 #Mantenedores 
 
 #Mantenedor País
