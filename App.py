@@ -1,6 +1,9 @@
 from flask import Flask, render_template, request, flash, redirect, url_for
 import Paises
 import MantenedorPaises
+import Ciudades
+import MantenedorCiudades
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -47,7 +50,8 @@ def country():
 
 @app.route('/ciudad')
 def city():
-    return render_template('mantenedores/ciudad.html')
+    datos = MantenedorPaises.selectAll()
+    return render_template('mantenedores/ciudad.html', countries = datos)
 
 @app.route('/estilos')
 def style():
@@ -73,7 +77,6 @@ def MantenedorPais(id):
             elif auxBtnInsert == 'Editar':
                 auxCod = request.form['txtCodEdit']
                 auxNom = request.form['txtNomEdit']
-                print(auxCod+auxNom)
                 MantenedorPaises.update(auxCod,auxNom)
         except:
             print('Error')
@@ -83,6 +86,22 @@ def MantenedorPais(id):
         except:
             print("Error")
     return redirect(url_for('country'))
+
+#Mantenedor Ciudad
+@app.route('/mantenedorCiudad', defaults={'id': None}, methods=['POST'])
+@app.route('/mantenedorCiudad/<string:id>')
+def MantenedorCiudad(id):
+    if request.method == 'POST':
+        try:
+            auxBtnInsert = request.form['btnAcept']
+            if auxBtnInsert == 'Insertar':
+                auxCod = request.form['txtCod']
+                auxNom = request.form['txtNom']
+                auxPais = request.form.get('txtPais')
+                print(auxPais+auxCod+auxNom)
+        except:
+            print('Error')
+    return redirect(url_for('city'))
 
 if __name__ == '__main__':
     app.run(debug=True)
