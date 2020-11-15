@@ -32,10 +32,49 @@
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mantenedores.css') }}">
 
-    <!--Función externa para filtrado del mantenedor-->
-    <script type="text/javascript">
+     <!--Función externa para filtrado del mantenedor-->
+     <script type="text/javascript">
         $(document).ready(function () {
-            $('#userList').DataTable();
+            $('#userList').DataTable({
+                language: {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "Último",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "colvis": "Visibilidad"
+                    }
+                }
+            });
+        });
+
+        $(document).on("click", ".btnEditar", function () {
+            fila = $(this).closest("tr");
+            cod = fila.find('th:eq(0)').text();
+            nom = fila.find('td:eq(0)').text();
+            console.log(cod)
+            console.log(nom)
+            $("#txtCodEdit").val(cod.trim())           
+            $("#txtNomEdit").val(nom.trim())
         });
     </script>
 </head>
@@ -70,7 +109,7 @@
                                 <a class="nav-link" href="{{ url_for('country')}}">Gestión Paises</a>
                                 <a class="nav-link" href="{{ url_for('city')}}">Gestión Ciudades</a>
                                 <a class="nav-link" href="{{ url_for('style')}}">Gestión Estilos</a>
-                                <a class="nav-link" href="{{ url_for('artist')}}">Gestión Administrador</a>
+                                <a class="nav-link" href="{{ url_for('admin')}}">Gestión Administrador</a>
                                 <a class="nav-link" href="{{ url_for('login')}}" onclick="logout()">Cerrar Sesión</a>
                             </div>
                         </div>
@@ -106,6 +145,7 @@
                                             <th scope="col">Nombre</th>
                                             <th scope="col">País</th>
                                             <th></th>
+                                            <th></th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -114,9 +154,14 @@
                                             <th scope="row">{{city.0}}</th>
                                             <td>{{city.1}}</td>
                                             <td>{{city.2}}</td>
-                                            <td style="text-align-last: center;">
-                                                <a href="#"><i class="fas fa-edit"></i></a> | <a href="#"><i
-                                                        class="fas fa-user-times"></i></a>
+                                            <td>
+                                                <a class="nav justify-content-center btnEditar" data-toggle="tab" href="#formEdit"><i
+                                                        class="fas fa-edit"></i></a>
+                                            </td>
+                                            <td>
+                                                <a class="nav justify-content-center" 
+                                                    href="/mantenedorPais/{{city.0}}"><i
+                                                        class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         {% endfor %}
@@ -161,6 +206,36 @@
                                         <input type="reset" class="btn btn-secondary" value="Cancelar">
                                         <input id="btnAcept" name="btnAcept" type="submit" class="btn btn-primary"
                                         value="Insertar">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" name="formEdit" id="formEdit">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Información del País</h4>
+                        </div>
+                        <div class="card-body">
+                            <form class="form" method="POST" action="/mantenedorPais">
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Código</label>
+                                    <div class="col-lg-9">
+                                        <input id="txtCodEdit" name="txtCodEdit" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Nombre</label>
+                                    <div class="col-lg-9">
+                                        <input id="txtNomEdit" name="txtNomEdit" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-12 text-center">
+                                        <input onclick="window.location.reload()" style="width: 100px;" class="btn btn-secondary" value="Cancelar">
+                                        <input id="btnEditar" name="btnAcept" type="submit" class="btn btn-primary"
+                                            value="Editar">
                                     </div>
                                 </div>
                             </form>
