@@ -20,3 +20,39 @@ def insert(ciudad):
     except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:
         print("Ocurrió un error a la hora de insertar",e)
     conn.close()
+
+#Listado de Ciudad
+def selectAll():
+    conn = connection()
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT * FROM CIUDAD")
+            data = cursor.fetchall()
+            return data
+    except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:
+        print("Error",e)
+    conn.close()
+
+#Eliminar Ciudad
+def deleteWhere(cod):
+    conn = connection()
+    try:
+        with conn.cursor() as cursor:
+            nonQuery="DELETE FROM CIUDAD WHERE ID_CIUDAD = %s;"
+            cursor.execute(nonQuery, (cod))
+        conn.commit()
+    except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:
+        print("Error",e)
+    conn.close()
+
+#Actualizar Ciudad
+def update(cod,nom):
+    conn = connection()
+    try:
+        with conn.cursor() as cursor:
+            nonQuery="UPDATE CIUDAD SET NOMBRE_CIUDAD=%s WHERE ID_CIUDAD=%s"
+            cursor.execute(nonQuery,(nom,cod))
+        conn.commit()
+    except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:
+                print("Error",e)
+    conn.close()    

@@ -9,7 +9,7 @@ def connection():
         print("Error de conexion")
     return conn
 
-#Insertar un país
+#Insertar un Estilo
 def insert(estilo):
     conn = connection()
     try:
@@ -20,3 +20,39 @@ def insert(estilo):
     except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:
         print("Ocurrió un error a la hora de insertar",e)
     conn.close()
+
+#Listado de Estilo
+def selectAll():
+    conn = connection()
+    try:
+        with conn.cursor() as cursor:
+            cursor.execute("SELECT * FROM ESTILO")
+            data = cursor.fetchall()
+            return data
+    except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:
+        print("Error",e)
+    conn.close()
+
+#Eliminar Estilo
+def deleteWhere(cod):
+    conn = connection()
+    try:
+        with conn.cursor() as cursor:
+            nonQuery="DELETE FROM ESTILO WHERE COD_ESTILO = %s;"
+            cursor.execute(nonQuery, (cod))
+        conn.commit()
+    except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:
+        print("Error",e)
+    conn.close()
+
+#Actualizar Estilo
+def update(cod,nom):
+    conn = connection()
+    try:
+        with conn.cursor() as cursor:
+            nonQuery="UPDATE ESTILO SET NOMBRE_ESTILO=%s WHERE COD_ESTILO=%s"
+            cursor.execute(nonQuery,(nom,cod))
+        conn.commit()
+    except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:
+                print("Error",e)
+    conn.close()    
