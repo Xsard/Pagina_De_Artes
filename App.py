@@ -5,6 +5,8 @@ import Ciudades
 import MantenedorCiudades
 import Estilos
 import MantenedorEstilos
+import Administradores
+import MantenedorAdministradores
 
 app = Flask(__name__)
 
@@ -63,7 +65,9 @@ def style():
 
 @app.route('/admin')
 def admin():
-    return render_template('mantenedores/admin.html')
+    datosAdmin = MantenedorAdministradores.selectAll()
+    return render_template('mantenedores/admin.html', admins = datosAdmin)
+
 #Mantenedores 
 
 #Mantenedor País
