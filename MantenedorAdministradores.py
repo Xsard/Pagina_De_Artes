@@ -1,5 +1,5 @@
 import pymysql
-from Paises import Pais
+from Administradores import Administrador
 
 #Conexión a la base de datos
 def connection():
@@ -9,48 +9,48 @@ def connection():
         print("Error de conexion")
     return conn
 
-#Insertar un país
-def insert(pais):
+#Insertar una Administrador
+def insert(administrador):
     conn = connection()
     try:
         with conn.cursor() as cursor:
-            nonQuery = "INSERT INTO PAIS(ID_PAIS, NOMBRE_PAIS) VALUES (%s,%s)"
-            cursor.execute(nonQuery,(pais.codigo,pais.nombre))
+            nonQuery = "INSERT INTO ADMINISTRADOR(ID_ADMIN, NOMBRE, APATERNO, AMATERNO, EMAIL) VALUES (%s,%s,%s,%s,%s)"
+            cursor.execute(nonQuery,(administrador.codigo, administrador.nombre, administrador.apellidoPaterno, administrador.apellidoMaterno, administrador.email))
         conn.commit()
     except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:
         print("Ocurrió un error a la hora de insertar",e)
     conn.close()
 
-#Listado de países
+#Listado de Administrador
 def selectAll():
     conn = connection()
     try:
         with conn.cursor() as cursor:
-            cursor.execute("SELECT * FROM PAIS")
+            cursor.execute("SELECT * FROM ADMINISTRADOR")
             data = cursor.fetchall()
             return data
     except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:
         print("Error",e)
     conn.close()
 
-#Eliminar Pais
+#Eliminar Administrador
 def deleteWhere(cod):
     conn = connection()
     try:
         with conn.cursor() as cursor:
-            nonQuery="DELETE FROM PAIS WHERE ID_PAIS = %s;"
+            nonQuery="DELETE FROM ADMINISTRADOR WHERE ID_ADMIN = %s;"
             cursor.execute(nonQuery, (cod))
         conn.commit()
     except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:
         print("Error",e)
     conn.close()
 
-#Actualizar Pais
+#Actualizar Administrador
 def update(cod,nom):
     conn = connection()
     try:
         with conn.cursor() as cursor:
-            nonQuery="UPDATE PAIS SET NOMBRE_PAIS=%s WHERE ID_PAIS=%s"
+            nonQuery="UPDATE ADMINISTRADOR SET NOMBRE=%s WHERE ID_ADMIN=%s"
             cursor.execute(nonQuery,(nom,cod))
         conn.commit()
     except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:

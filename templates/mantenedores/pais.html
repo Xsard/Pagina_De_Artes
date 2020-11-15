@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArtSpace| Mantenedor Países</title>
-    <link rel="icon" type="image/png" href="../../img/logo.png">
+    <link rel="icon" type="image/png" href="{{url_for('static', filename='img/logo.png')}}">
 
     <!--Links Externos para el mantenedor -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     <!--CSS-->
-
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mantenedores.css') }}">
 
     <!--Función externa para filtrado del mantenedor-->
     <script type="text/javascript">
@@ -84,30 +84,28 @@
         <div class="collapse navbar-collapse" id="BarraDeNavegacion">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="../homeloged.html"> Inicio</a>
+                    <a class="nav-link" href="{{ url_for('homelog') }}"> Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../aboudloged.html"> Acerca de</a>
+                    <a class="nav-link" href="{{ url_for('aboutlog') }}"> Acerca de</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../servicesloged.html"> Servicios</a>
+                    <a class="nav-link" href="{{ url_for('serviceslog') }}"> Servicios</a>
                 </li>
-
                 <li class="nav-item">
-                    <a class="nav-link" href="../addImg.html"> Subir Obra</a>
+                    <a class="nav-link" href="{{ url_for('piece') }}"> Subir Obra</a>
                 </li>
-                <li>
                     <div class="btn-group">
                         <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             Gestiones
                         </button>
-                        <div class="dropdown-menu">
-                            <a class="nav-link" href="pais.html">Gestión Países</a>
-                            <a class="nav-link" href="ciudad.html">Gestión Ciudades</a>
-                            <a class="nav-link" href="estilos.html">Gestión Estilos</a>
-                            <a class="nav-link" href="artistas.html">Gestión Artistas</a>
-                            <a class="nav-link" href="../login.html" onclick="logoutMant()">Cerrar Sesión</a>
+                        <div class="dropdown-menu" style="width: max-content;">
+                            <a class="nav-link" href="{{ url_for('country')}}">Gestión Paises</a>
+                            <a class="nav-link" href="{{ url_for('city')}}">Gestión Ciudades</a>
+                            <a class="nav-link" href="{{ url_for('style')}}">Gestión Estilos</a>
+                            <a class="nav-link" href="{{ url_for('artist')}}">Gestión Administrador</a>
+                            <a class="nav-link" href="{{ url_for('login')}}" onclick="logout()">Cerrar Sesión</a>
                         </div>
                     </div>
                 </li>
