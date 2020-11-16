@@ -117,10 +117,7 @@ def MantenedorCiudad(id):
         except:
             print("Error")
     return redirect(url_for('city'))
-
-if __name__ == '__main__':
-    app.run(debug=True)
-
+    
 #Mantenedor Estilo
 @app.route('/mantenedorEstilo', defaults={'id': None}, methods=['POST'])
 @app.route('/mantenedorEstilo/<string:id>')
