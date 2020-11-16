@@ -14,6 +14,8 @@ def insert(administrador):
     conn = connection()
     try:
         with conn.cursor() as cursor:
+            nonQuery = "INSERT INTO USERS(EMAIL, CONTRASEÑA) VALUES (%s,PASSWORD(%s))"
+            cursor.execute(nonQuery,(administrador.email, administrador.password))
             nonQuery = "INSERT INTO ADMINISTRADOR(ID_ADMIN, NOMBRE, APATERNO, AMATERNO, EMAIL) VALUES (%s,%s,%s,%s,%s)"
             cursor.execute(nonQuery,(administrador.codigo, administrador.nombre, administrador.apellidoPaterno, administrador.apellidoMaterno, administrador.email))
         conn.commit()
