@@ -1,5 +1,8 @@
 from flask import Flask, render_template, request, flash, redirect, url_for
-import Paises, MantenedorPaises, Ciudades, MantenedorCiudades, Estilos, MantenedorEstilos, Administradores, MantenedorAdministradores
+import Paises, MantenedorPaises
+import Ciudades, MantenedorCiudades
+import Estilos, MantenedorEstilos
+import Administradores, MantenedorAdministradores
 
 app = Flask(__name__)
 
@@ -114,6 +117,35 @@ def MantenedorCiudad(id):
         except:
             print("Error")
     return redirect(url_for('city'))
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+#Mantenedor Estilo
+@app.route('/mantenedorEstilo', defaults={'id': None}, methods=['POST'])
+@app.route('/mantenedorEstilo/<string:id>')
+def mantenedorEstilo(id):
+    if request.method == 'POST':
+        try:
+            auxBtnInsert = request.form['btnAcept']
+            if auxBtnInsert == 'Insertar':
+                auxCod = request.form['txtCod']
+                auxNom = request.form['txtNom']
+                auxEstilo = Estilos.Estilo(auxCod,auxNom)
+                MantenedorEstilos.insert(auxEstilo)
+            elif auxBtnInsert == "Editar":
+                auxCod = request.form['txtCodEdit']
+                auxNom = request.form['txtNomEdit']
+                print(auxCod+auxNom)
+                MantenedorEstilos.update(auxCod,auxNom)
+        except:
+            print('Error')
+    elif id:
+        try:
+            MantenedorEstilos.deleteWhere(id)
+        except:
+            print("Error")
+    return redirect(url_for('style'))
 
 if __name__ == '__main__':
     app.run(debug=True)
