@@ -144,5 +144,28 @@ def mantenedorEstilo(id):
             print("Error")
     return redirect(url_for('style'))
 
+#Mantenedor Admin
+@app.route('/mantenedorAdmin', defaults={'id': None}, methods=['POST'])
+@app.route('/mantenedorAdmin/<string:id>')
+def mantenedorAdmin(id):
+    if request.method == 'POST':
+        try:
+            auxBtnInsert = request.form['btnAcept']
+            if auxBtnInsert == 'Insertar':
+                nom = request.form['txtNom']
+                apa = request.form['txtApa']
+                ama = request.form['txtAma']
+                email = request.form['txtEmail']
+                password = request.form['txtPass']
+                adminis= Administradores.Administrador(0,nom,apa,ama,email,password)
+                MantenedorAdministradores.insert(adminis)
+        except:
+            print('Error')
+    elif id:
+        try:
+            MantenedorAdministradores.deleteWhere(id)
+        except:
+            print("Error")
+    return redirect(url_for('admin'))
 if __name__ == '__main__':
     app.run(debug=True)

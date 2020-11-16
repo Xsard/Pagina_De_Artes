@@ -93,6 +93,10 @@
                     <a class="nav-link active" id="list-tab" data-toggle="tab" href="#list" role="tab"
                         aria-controls="list" aria-selected="false">Lista de Administradores</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="form-tab" data-toggle="tab" href="#form" role="tab" aria-controls="form"
+                        aria-selected="true">Añadir Administrador</a>
+                </li>
             </ul>
             <div class="tab-content" id="myTabContent">
                 <div class="tab-pane fade show active" id="list" role="tabpanel" aria-labelledby="list-tab">
@@ -128,7 +132,7 @@
                                             </td>
                                             <td>
                                                 <a class="nav justify-content-center" 
-                                                    href="/mantenedorCiudad/{{admin.0}}"><i
+                                                    href="/mantenedorAdmin/{{admin.0}}"><i
                                                         class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
@@ -136,6 +140,54 @@
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade" id="form">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Información del Administrador</h4>
+                        </div>
+                        <div class="card-body">
+                            <form class="form" method="POST" autocomplete="off" action="/mantenedorAdmin">
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Nombre</label>
+                                    <div class="col-lg-9">
+                                        <input id="txtNom" name="txtNom" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Apellido Paterno</label>
+                                    <div class="col-lg-9">
+                                        <input id="txtApa" name="txtApa" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Apellido Materno</label>
+                                    <div class="col-lg-9">
+                                        <input id="txtAma" name="txtAma" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Email</label>
+                                    <div class="col-lg-9">
+                                        <input id="txtEmail" name="txtEmail" class="form-control" type="text">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Contraseña</label>
+                                    <div class="col-lg-9">
+                                        <input id="txtPass" name="txtPass" class="form-control" type="password">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-lg-12 text-center">
+                                        <input type="reset" class="btn btn-secondary" value="Cancelar">
+                                        <input id="btnAcept" name="btnAcept" type="submit" class="btn btn-primary"
+                                            value="Insertar">
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -14,8 +14,10 @@ def insert(administrador):
     conn = connection()
     try:
         with conn.cursor() as cursor:
+            nonQuery = "INSERT INTO USERS(EMAIL, CONTRASEÑA) VALUES (%s,PASSWORD(%s))"
+            cursor.execute(nonQuery,(administrador.email, administrador.password))
             nonQuery = "INSERT INTO ADMINISTRADOR(ID_ADMIN, NOMBRE, APATERNO, AMATERNO, EMAIL) VALUES (%s,%s,%s,%s,%s)"
-            cursor.execute(nonQuery,(administrador.codigo, administrador.nombre, administrador.apellidoPaterno, administrador.apellidoMaterno, administrador.email))
+            cursor.execute(nonQuery,('NULL', administrador.nombre, administrador.apellidoPaterno, administrador.apellidoMaterno, administrador.email))
         conn.commit()
     except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:
         print("Ocurrió un error a la hora de insertar",e)
@@ -56,3 +58,5 @@ def update(cod,nom,aPaterno,aMaterno,email):
     except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:
                 print("Error",e)
     conn.close()
+
+deleteWhere(1)
