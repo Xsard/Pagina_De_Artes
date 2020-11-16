@@ -48,15 +48,13 @@ def deleteWhere(cod):
     conn.close()
 
 #Actualizar Administrador
-def update(cod,nom,aPaterno,aMaterno,email):
+def update(cod,nom,aPaterno,aMaterno):
     conn = connection()
     try:
         with conn.cursor() as cursor:
-            nonQuery="UPDATE ADMINISTRADOR SET NOMBRE=%s, APATERNO=%s, AMATERNO=%s, EMAIL=%s WHERE ID_ADMIN=%s"
-            cursor.execute(nonQuery,(nom,aPaterno,aMaterno,email,cod))
+            nonQuery="UPDATE ADMINISTRADOR SET NOMBRE=%s, APATERNO=%s, AMATERNO=%s WHERE ID_ADMIN=%s"
+            cursor.execute(nonQuery,(nom,aPaterno,aMaterno,cod))
         conn.commit()
     except (pymysql.err.OperationalError,pymysql.err.InternalError) as e:
                 print("Error",e)
     conn.close()
-
-deleteWhere(1)

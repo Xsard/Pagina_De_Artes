@@ -159,6 +159,12 @@ def mantenedorAdmin(id):
                 password = request.form['txtPass']
                 adminis= Administradores.Administrador(0,nom,apa,ama,email,password)
                 MantenedorAdministradores.insert(adminis)
+            elif auxBtnInsert == 'Editar':
+                cod = request.form['txtCodEdit']
+                nom = request.form['txtNomEdit']
+                apa = request.form['txtApaEdit']
+                ama = request.form['txtAmaEdit']
+                MantenedorAdministradores.update(cod,nom,apa,ama)
         except:
             print('Error')
     elif id:
@@ -167,5 +173,6 @@ def mantenedorAdmin(id):
         except:
             print("Error")
     return redirect(url_for('admin'))
+
 if __name__ == '__main__':
     app.run(debug=True)
