@@ -1,5 +1,4 @@
 class Estilo:
-    def __init__(self,codigo,nombre, descripcion):
+    def __init__(self,codigo,nombre):
         self.codigo = codigo
         self.nombre = nombre
-        self.descripcion = descripcion
