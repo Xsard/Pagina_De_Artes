@@ -21,7 +21,7 @@
         crossorigin="anonymous"></script>
 
     <!--CSS y JS personales-->
-    <script src="../scripts/login.js"></script>
+    <script src="{{ url_for('static', filename='scripts/login') }}"></script>
     <link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
 
 </head>
@@ -55,7 +55,7 @@
         </div>
     </nav>
     <div class="box">
-        <form class="login" onsubmit="login(event);" method="POST">
+        <form class="login" method="POST">
             <div class="form-group">
                 <label for="InputEmail">Email</label>
                 <input type="email" class="form-control" id="InputEmail" aria-describedby="emailHelp">
@@ -68,8 +68,8 @@
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
             </div>
-            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-            <a type="button" class="btn btn-primary" href="signup.html">Registrarse</a>
+            <a type="submit" href="{{ url_for('homelog') }}" class="btn btn-primary">Iniciar Sesión</button>
+            <a type="button" style="margin-left: 10px;" class="btn btn-primary" href="{{ url_for('signup') }}">Registrarse</a>
         </form>
     </div>
 </body>
