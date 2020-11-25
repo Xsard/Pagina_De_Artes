@@ -67,7 +67,7 @@
         </nav>
     </div>
     <br></br>
-    <form class="needs-validation" novalidate>
+    <form class="needs-validation" action="/upload" method="POST">
         <div class="form-row">
 
             <div class="col-md-6 mb-3" style="max-width: 510px">
@@ -93,14 +93,14 @@
             <textarea class="form-control"  style="min-width: 500px; width: 6vmin;" id="exampleFormControlTextarea1" rows="3"></textarea>
         </div>
         <div class="custom-file col-md-12 mb-3">
-            <input type="file" class="custom-file-input" id="file-input" />
+            <input type="file" class="custom-file-input" id="file-input" name="imgObra"/>
             <label class="custom-file-label" for="file-input" style="width: 400px;">Seleccionar Archivo</label>
         </div>
         <div class="imgCentro">
             <img id="imgSalida" class="center-block" width="50%" height="50%" src=""
-                style="margin-left: auto; margin-right: auto; display: none;" />
+                style="margin-left: auto; margin-right: auto; display: none;"/>
         </div>
-        <button class="btn btn-primary" style="margin-top: 5%;" type="submit">Subir Obra</button>
+        <input class="btn btn-primary" style="margin-top: 5%;" type="submit" name="btnAcept" value="Subir">
     </form>
     <script
         src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>

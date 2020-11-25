@@ -14,9 +14,7 @@ function validaciones(evt) {
             if (Edad < 8 || isNaN(parseInt(Edad))) {
                 alert("La edad no es un número o es menor a 18")
                 evt.preventDefault();
-            } else {
-                alert("a")
-            }
+            } 
         } else {
             alert("Las contraseñas no coinciden")
             evt.preventDefault();

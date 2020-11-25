@@ -22,7 +22,7 @@
 
   <!--CSS personal-->
   <link rel="stylesheet" href="{{url_for('static', filename='css/signup.css')}}">
-
+  <script src="../static/scripts/signup.js"></script>
 </head>
 
 <body>
@@ -53,22 +53,22 @@
       </ul>
     </div>
   </nav>
-  <form class="container" onsubmit="validaciones(event)" method="POST">
+  <form class="container" onsubmit="validaciones(event)" method="POST" action="/registered">
     <div class="box">
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="EmailPer">Email</label>
-          <input type="email" class="form-control" id="EmailPer">
+          <input type="email" class="form-control" id="EmailPer" name="txtEmail">
         </div>
         <div class="form-group col-md-6">
           <label for="Pass">Contraseña</label>
-          <input type="password" class="form-control" id="Pass">
+          <input type="password" class="form-control" id="Pass" name="txtPass">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="EmailCont">Email de negocios</label>
-          <input type="email" class="form-control" id="EmailCont">
+          <input type="email" class="form-control" id="EmailCont" name="txtEmailNegocios">
         </div>
         <div class="form-group col-md-6">
           <label for="Pass">Confirmar contraseña</label>
@@ -76,38 +76,41 @@
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group col-md-8">
+        <div class="form-group col-md-4">
           <label for="Nombre">Nombres</label>
-          <input type="text" class="form-control" id="Nombres">
+          <input type="text" class="form-control" id="Nombres" name="txtNombre">
         </div>
         <div class="form-group col-md-4">
-          <label for="NomArt">Nombre Artistico</label>
-          <input type="text" class="form-control" id="NomArt">
+          <label for="Nombre">Apellido Paterno</label>
+          <input type="text" class="form-control" id="Apa" name="txtApa">
+        </div>
+        <div class="form-group col-md-4">
+          <label for="NomArt">Apellido Materno</label>
+          <input type="text" class="form-control" id="Ama" name="txtAma">
         </div>
       </div>
       <div class="form-row">
-        <div class="form-group col-md-6">
-          <label for="PaisCom">País</label>
-          <select class="form-control" id="PaisCom">
-            <option selected>País aquí...</option>
-            <option>...</option>
-          </select>
+        <div class="form-group col-md-4">
+          <label for="NomArt">Nombre Artistico</label>
+          <input type="text" class="form-control" id="NomArt" name="txtNomArt">
         </div>
         <div class="form-group col-md-4">
           <label for="CiudadCom">Ciudad</label>
-          <select id="CiudadCom" class="form-control">
+          <select id="CiudadCom" class="form-control" name="txtCiudad">
             <option selected>Ciudad aquí...</option>
-            <option>...</option>
+            {% for city in cities %}
+            <option value="{{ city.0 }}">{{ city.1 }}</option>
+            {% endfor %}
           </select>
         </div>
-        <div class="form-group col-md-2">
-          <label for="Edad">Edad</label>
-          <input type="text" class="form-control" id="Edad">
+        <div class="form-group col-md-4">
+          <label for="Edad">Fecha de Nacimiento</label>
+          <input type="date" class="form-control" id="date" name="txtFec">
         </div>
       </div>
       <br>
       <br>
-      <button type="submit" class="btn btn-primary">Registrarse</button>
+      <input type="submit" class="btn btn-primary" name="btnRegistro" value="Registrarse">
     </div>
   </form>
 </body>
