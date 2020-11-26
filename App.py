@@ -20,6 +20,14 @@ def about():
 def services():
     return render_template('services.html')
 
+@app.route('/subastas')
+def subastas():
+    #if "user" in session:
+    #    return render_template('subastas.html')
+    #else:
+    #    return redirect(url_for("login"))
+    return render_template('subastas.html')
+
 @app.route('/login', methods =["POST","GET"])
 def login():
     if request.method == "POST":

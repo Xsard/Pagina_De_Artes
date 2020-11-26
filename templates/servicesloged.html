@@ -45,6 +45,9 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('piece')}}"> Subir Obra</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('subastas')}}"> Subastas</a>
+      </li>
         <li>
           <div class="btn-group">
             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
@@ -81,32 +84,36 @@
   <!--FOOTER-->
   <footer>
     <div class="jumbotron bg-light text-white" style="height: initial; width: auto">
-      <div class="row">
-        <div class="col-sm-9 ws-footer-col">
-          <a href="{{ url_for('homelog') }}">
-            <img src="{{url_for('static', filename='img/logo.png')}}" class="img"
-              style="margin-right: initial; width: 300px; height: 250px;">
-          </a>
+        <div class="row">
+            <div class="col-sm-9 ws-footer-col">
+                <a href="{{ url_for('homelog') }}">
+                    <img src="{{url_for('static', filename='img/logo.png')}}" class="img"
+                    style="margin-right: initial; width: 300px; height: 250px;">
+                </a>
+            </div>
+            <ul style="margin-right:initial;">
+                <h1 style="color: black; margin-left: 20px; padding-left: 15px;">Soportes</h1>
+                <li style="margin-left: 35px;">
+                    <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('aboutlog') }}">Nosotros</a>
+                </li>
+                <li style="margin-left: 35px ;">
+                    <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('serviceslog') }}">Servicios</a>
+                </li>
+                <li style="margin-left: 35px ;">
+                    <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('piece') }}">Subir Obra</a>
+                </li>
+                <li style="margin-left: 35px ;">
+                    <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('subastas') }}">Subastas</a>
+                </li>
+            </ul>
         </div>
-        <ul style="margin-right:initial;">
-          <h1 style="color: black; margin-left: 20px; padding-left: 15px;">Soportes</h1>
-          <li style="margin-left: 35px;">
-            <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('aboutlog') }}">Nosotros</a>
-          </li>
-          <li style="margin-left: 35px ;">
-            <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('serviceslog') }}">Servicios</a>
-          </li>
-        </ul>
-      </div>
     </div>
   </footer>
   <div class="footer">
     <div style="text-align-last: center;">
-      <p style="color: white;">© 2020 Copyright ArtSpace</p>
+    <p style="color: white;">© 2020 Copyright ArtSpace</p>
     </div>
   </div>
   <!--FIN FOOTER-->
-
 </body>
-
 </html>

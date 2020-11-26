@@ -47,6 +47,9 @@
                     <li class="nav-item active">
                         <a class="nav-link" href="{{ url_for('piece')}}"> Subir Obra <span class="sr-only">(current)</span></a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ url_for('subastas')}}"> Subastas</a>
+                    </li>
                     <li>
                         <div class="btn-group">
                             <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
@@ -102,6 +105,41 @@
         </div>
         <input class="btn btn-primary" style="margin-top: 5%;" type="submit" name="btnAcept" value="Subir">
     </form>
+    <br></br>
+    <!--FOOTER-->
+    <footer>
+        <div class="jumbotron bg-light text-white" style="height: initial; width: auto">
+            <div class="row">
+                <div class="col-sm-9 ws-footer-col">
+                    <a href="{{ url_for('homelog') }}">
+                        <img src="{{url_for('static', filename='img/logo.png')}}" class="img"
+                        style="margin-right: initial; width: 300px; height: 250px;">
+                    </a>
+                </div>
+                <ul style="margin-right:initial;">
+                    <h1 style="color: black; margin-left: 20px; padding-left: 15px;">Soportes</h1>
+                    <li style="margin-left: 35px;">
+                        <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('aboutlog') }}">Nosotros</a>
+                    </li>
+                    <li style="margin-left: 35px ;">
+                        <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('serviceslog') }}">Servicios</a>
+                    </li>
+                    <li style="margin-left: 35px ;">
+                        <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('piece') }}">Subir Obra</a>
+                    </li>
+                    <li style="margin-left: 35px ;">
+                        <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('subastas') }}">Subastas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <div class="footer">
+        <div style="text-align-last: center;">
+        <p style="color: white;">© 2020 Copyright ArtSpace</p>
+        </div>
+    </div>
+    <!--FIN FOOTER-->
     <script
         src="https://static.codepen.io/assets/common/stopExecutionOnTimeout-157cd5b220a5c80d4ff8e0e70ac069bffd87a61252088146915e8726e5d9f147.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
