@@ -22,10 +22,10 @@ def services():
 
 @app.route('/subastas')
 def subastas():
-    #if "user" in session:
-    #    return render_template('subastas.html')
-    #else:
-    #    return redirect(url_for("login"))
+    if "user" in session:
+        return render_template('subastas.html')
+    else:
+        return redirect(url_for("login"))
     return render_template('subastas.html')
 
 @app.route('/login', methods =["POST","GET"])
