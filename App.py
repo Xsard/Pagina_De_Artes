@@ -6,7 +6,10 @@ import Estilos, MantenedorEstilos
 import Administradores, MantenedorAdministradores
 import Artistas, RegistroUsuarios
 import Obras, SubirObras
+import Subastas, Subastar
 from werkzeug.utils import secure_filename
+from datetime import datetime
+from datetime import timedelta
 
 UPLOAD_FOLDER = 'static/Uploads/'
 
@@ -35,7 +38,8 @@ def services():
 @app.route('/subastas')
 def subastas():
     if "user" in session:
-        return render_template('subastas.html')
+        datosObras = SubirObras.select()
+        return render_template('subastas.html', obras = datosObras)
     else:
         return redirect(url_for("login"))
     return render_template('subastas.html')
@@ -164,17 +168,46 @@ def upload():
                     if image and allowed_file(image.filename):
                         imageName = secure_filename(image.filename)
                         username = session.get("user")
+                        cod = str(username)+str(datetime.now())
                         nombre = request.form['txtNombre']
                         estilo = request.form.get('txtEstilo')
                         desc = request.form['txtDesc']
-                        auxObra = Obras.Obra(nombre, desc, estilo, username)
+                        precio = int(request.form['txtPrecio'])
+                        fechaSub = datetime.today() + timedelta(days=20)
+                        auxObra = Obras.Obra(cod, nombre, desc, precio, fechaSub, estilo, username)
                         SubirObras.insert(auxObra, imageName)
                         image.save(os.path.join(app.config['UPLOAD_FOLDER'], imageName))
-            except:
-                print('ERROR')
+            except Exception as identifier:
+                print(identifier)
+    else:
+        return redirect(url_for("login"))
     return redirect(url_for("piece"))
-#Mantenedores 
 
+#Subastar
+@app.route('/subastar/<string:id>', methods=['POST','GET'])
+def auction(id):
+    if "user" in session:
+        if request.method == 'POST':
+            try:
+                auxBtn = request.form['btnAcept'+id]
+                if auxBtn == 'Ofertar':
+                    username = session.get("user")
+                    puja = int(request.form['txtPuja'+id])
+                    obra = request.form['txtObra'+id]
+                    mejorPuja = int(request.form.get('txtMejor'+id))
+                    if mejorPuja<puja:
+                        subasta = Subastas.Subasta(obra, username, puja)
+                        Subastar.insert(subasta)
+                    else:
+                        flash("No se puede ofertar un valor menor a la puja más alta, lo sentimos.")
+                        return redirect(url_for('subastas'))
+            except Exception as identifier:
+                print(identifier)
+        return redirect(url_for('subastas'))
+    else:
+        return redirect(url_for("login"))
+
+#Mantenedores 
 #Mantenedor País
 @app.route('/mantenedorPais', defaults={'id': None}, methods=['POST'])
 @app.route('/mantenedorPais/<string:id>')
