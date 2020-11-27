@@ -61,7 +61,7 @@
                                 <a class="nav-link" href="{{ url_for('city')}}">Gestión Ciudades</a>
                                 <a class="nav-link" href="{{ url_for('style')}}">Gestión Estilos</a>
                                 <a class="nav-link" href="{{ url_for('admin')}}">Gestión Administradores</a>
-                                <a class="nav-link" href="{{ url_for('login')}}" onclick="logout()">Cerrar Sesión</a>
+                                <a class="nav-link" href="{{ url_for('logout')}}">Cerrar Sesión</a>
                             </div>
                         </div>
                     </li>
@@ -70,21 +70,23 @@
         </nav>
     </div>
     <br></br>
-    <form class="needs-validation" action="/upload" method="POST">
+    <form class="needs-validation" action="/upload" method="POST" autocomplete="off" enctype="multipart/form-data">
         <div class="form-row">
 
             <div class="col-md-6 mb-3" style="max-width: 510px">
                 <label for="validationTooltip01" style="color: white;">Nombre de la obra</label>
-                <input type="text" class="form-control" id="validationTooltip01" required>
+                <input type="text" class="form-control" id="validationTooltip01" name="txtNombre" required>
                 <div class="valid-tooltip">
                     ¡Exelente!
                 </div>
             </div>
             <div class="col-md-6 mb-3"  style="max-width: 510px">
                 <label for="validationTooltip04" style="color: white;">Estilo</label>
-                <select class="custom-select" id="validationTooltip04" required>
+                <select class="custom-select" id="validationTooltip04" name="txtEstilo" required>
                     <option selected disabled value="">Estilos aquí...</option>
-                    <option>...</option>
+                    {% for style in styles %}
+                    <option value="{{ style.0 }}">{{ style.1 }}</option>
+                    {% endfor %}
                 </select>
                 <div class="invalid-tooltip">
                     Seleccione un estilo válido por favor.
@@ -93,7 +95,7 @@
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1" style="color: white;">Descripción</label>
-            <textarea class="form-control"  style="min-width: 500px; width: 6vmin;" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <textarea class="form-control"  style="min-width: 500px; width: 6vmin;" id="exampleFormControlTextarea1" rows="3" name="txtDesc"></textarea>
         </div>
         <div class="custom-file col-md-12 mb-3">
             <input type="file" class="custom-file-input" id="file-input" name="imgObra"/>

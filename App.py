@@ -1,12 +1,24 @@
+import os
 from flask import Flask, render_template, request, flash, redirect, url_for, session
 import Paises, MantenedorPaises
 import Ciudades, MantenedorCiudades
 import Estilos, MantenedorEstilos
 import Administradores, MantenedorAdministradores
 import Artistas, RegistroUsuarios
+import Obras, SubirObras
+from werkzeug.utils import secure_filename
+
+UPLOAD_FOLDER = 'static/Uploads/'
+
+ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg'])
+
+def allowed_file(filename):
+	return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = "hello"
+
 
 @app.route('/')
 def home():
@@ -35,7 +47,7 @@ def login():
         password = request.form["txtPass"]
         validacion = RegistroUsuarios.selectWhere(user,password)
         if validacion!=-1:
-            session["user"] = user
+            session["user"] = validacion[0]
         return redirect(url_for("homelog"))
     else:
         if "user" in session:
@@ -75,8 +87,9 @@ def serviceslog():
 
 @app.route('/piece')
 def piece():
+    datosEstilos = MantenedorEstilos.selectAll()
     if "user" in session:
-        return render_template('addImg.html')
+        return render_template('addImg.html', styles = datosEstilos)
     else:
         return redirect(url_for("login"))
 
@@ -147,8 +160,16 @@ def upload():
             try:
                 auxBtn = request.form['btnAcept']
                 if auxBtn == 'Subir':
-                    img = request.form['imgObra']
-                    print(img)
+                    image = request.files["imgObra"]
+                    if image and allowed_file(image.filename):
+                        imageName = secure_filename(image.filename)
+                        username = session.get("user")
+                        nombre = request.form['txtNombre']
+                        estilo = request.form.get('txtEstilo')
+                        desc = request.form['txtDesc']
+                        auxObra = Obras.Obra(nombre, desc, estilo, username)
+                        SubirObras.insert(auxObra, imageName)
+                        image.save(os.path.join(app.config['UPLOAD_FOLDER'], imageName))
             except:
                 print('ERROR')
     return redirect(url_for("piece"))
