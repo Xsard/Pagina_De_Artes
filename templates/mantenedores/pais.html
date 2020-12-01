@@ -73,13 +73,24 @@
             nom = fila.find('td:eq(0)').text();
             console.log(cod)
             console.log(nom)
-            $("#txtCodEdit").val(cod.trim())           
+            $("#txtCodEdit").val(cod.trim())
             $("#txtNomEdit").val(nom.trim())
         });
     </script>
 </head>
 
 <body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">×</span></button>
+        {{message}}
+    </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <nav class="navbar navbar-expand navbar-light bg-light">
         <div class="collapse navbar-collapse" id="BarraDeNavegacion">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
@@ -98,19 +109,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ url_for('subastas') }}"> Subastas</a>
                 </li>
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Gestiones
-                        </button>
-                        <div class="dropdown-menu" style="width: max-content;">
-                            <a class="nav-link" href="{{ url_for('country')}}">Gestión Paises</a>
-                            <a class="nav-link" href="{{ url_for('city')}}">Gestión Ciudades</a>
-                            <a class="nav-link" href="{{ url_for('style')}}">Gestión Estilos</a>
-                            <a class="nav-link" href="{{ url_for('admin')}}">Gestión Administrador</a>
-                            <a class="nav-link" href="{{ url_for('logout')}}">Cerrar Sesión</a>
-                        </div>
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Gestiones
+                    </button>
+                    <div class="dropdown-menu" style="width: max-content;">
+                        <a class="nav-link" href="{{ url_for('country')}}">Gestión Paises</a>
+                        <a class="nav-link" href="{{ url_for('city')}}">Gestión Ciudades</a>
+                        <a class="nav-link" href="{{ url_for('style')}}">Gestión Estilos</a>
+                        <a class="nav-link" href="{{ url_for('admin')}}">Gestión Administrador</a>
+                        <a class="nav-link" href="{{ url_for('logout')}}">Cerrar Sesión</a>
                     </div>
+                </div>
                 </li>
             </ul>
         </div>
@@ -151,11 +162,11 @@
                                             <th scope="row"> {{country.0}} </th>
                                             <td> {{country.1}} </td>
                                             <td>
-                                                <a class="nav justify-content-center btnEditar" data-toggle="tab" href="#formEdit"><i
-                                                        class="fas fa-edit"></i></a>
+                                                <a class="nav justify-content-center btnEditar" data-toggle="tab"
+                                                    href="#formEdit"><i class="fas fa-edit"></i></a>
                                             </td>
                                             <td>
-                                                <a class="nav justify-content-center" 
+                                                <a class="nav justify-content-center"
                                                     href="/mantenedorPais/{{country.0}}"><i
                                                         class="fas fa-trash"></i></a>
                                             </td>
@@ -218,7 +229,8 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-12 text-center">
-                                        <input onclick="window.location.reload()" style="width: 100px;" class="btn btn-secondary" value="Cancelar">
+                                        <input onclick="window.location.reload()" style="width: 100px;"
+                                            class="btn btn-secondary" value="Cancelar">
                                         <input id="btnEditar" name="btnAcept" type="submit" class="btn btn-primary"
                                             value="Editar">
                                     </div>

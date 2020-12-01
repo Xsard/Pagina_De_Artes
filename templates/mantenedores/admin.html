@@ -4,12 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ArtSpace| Mantenedor Administrador</title> 
+    <title>ArtSpace| Mantenedor Administrador</title>
     <link rel="icon" type="image/png" href="{{url_for('static', filename='img/logo.png')}}">
 
     <!--Links Externos para el mantenedor -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -74,7 +74,7 @@
             apa = fila.find('td:eq(1)').text();
             ama = fila.find('td:eq(2)').text();
             email = fila.find('td:eq(3)').text();
-            $("#txtCodEdit").val(cod.trim())           
+            $("#txtCodEdit").val(cod.trim())
             $("#txtNomEdit").val(nom.trim())
             $("#txtApaEdit").val(apa.trim())
             $("#txtAmaEdit").val(ama.trim())
@@ -84,6 +84,17 @@
 </head>
 
 <body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">×</span></button>
+        {{message}}
+    </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
@@ -107,19 +118,19 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('subastas') }}"> Subastas</a>
                     </li>
-                        <div class="btn-group" id="avion">
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Gestiones
-                            </button>
-                            <div class="dropdown-menu" style="width: max-content;">
-                                <a class="nav-link" href="{{ url_for('country')}}">Gestión Paises</a>
-                                <a class="nav-link" href="{{ url_for('city')}}">Gestión Ciudades</a>
-                                <a class="nav-link" href="{{ url_for('style')}}">Gestión Estilos</a>
-                                <a class="nav-link" href="{{ url_for('admin')}}">Gestión Administrador</a>
-                                <a class="nav-link" href="{{ url_for('logout')}}" >Cerrar Sesión</a>
-                            </div>
+                    <div class="btn-group" id="avion">
+                        <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Gestiones
+                        </button>
+                        <div class="dropdown-menu" style="width: max-content;">
+                            <a class="nav-link" href="{{ url_for('country')}}">Gestión Paises</a>
+                            <a class="nav-link" href="{{ url_for('city')}}">Gestión Ciudades</a>
+                            <a class="nav-link" href="{{ url_for('style')}}">Gestión Estilos</a>
+                            <a class="nav-link" href="{{ url_for('admin')}}">Gestión Administrador</a>
+                            <a class="nav-link" href="{{ url_for('logout')}}">Cerrar Sesión</a>
                         </div>
+                    </div>
                     </li>
                 </ul>
             </div>
@@ -167,16 +178,15 @@
                                             <td>{{admin.3}}</td>
                                             <td>{{admin.4}}</td>
                                             <td>
-                                                <a class="nav justify-content-center btnEditar" data-toggle="tab" href="#formEdit"><i
-                                                        class="fas fa-edit"></i></a>
+                                                <a class="nav justify-content-center btnEditar" data-toggle="tab"
+                                                    href="#formEdit"><i class="fas fa-edit"></i></a>
                                             </td>
                                             <td>
-                                                <a class="nav justify-content-center" 
-                                                    href="/mantenedorAdmin/{{admin.0}}"><i
-                                                        class="fas fa-trash"></i></a>
+                                                <a class="nav justify-content-center"
+                                                    href="/mantenedorAdmin/{{admin.0}}"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
-                                        {% endfor %}                                        
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>
@@ -241,7 +251,8 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Código</label>
                                     <div class="col-lg-9">
-                                        <input id="txtCodEdit" name="txtCodEdit" class="form-control" type="text" readonly>
+                                        <input id="txtCodEdit" name="txtCodEdit" class="form-control" type="text"
+                                            readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -265,7 +276,8 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Email</label>
                                     <div class="col-lg-9">
-                                        <input id="txtEmailEdit" name="txtEmailEdit" class="form-control" type="text" readonly>
+                                        <input id="txtEmailEdit" name="txtEmailEdit" class="form-control" type="text"
+                                            readonly>
                                     </div>
                                 </div>
                                 <div class="form-group row">

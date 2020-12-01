@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ArtSpace| Mantenedor Ciudades</title>
     <link rel="icon" type="image/png" href="{{url_for('static', filename='img/logo.png')}}">
-    
+
     <!--Links Externos para el mantenedor -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -32,8 +32,8 @@
     <!--CSS-->
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/mantenedores.css') }}">
 
-     <!--Función externa para filtrado del mantenedor-->
-     <script type="text/javascript">
+    <!--Función externa para filtrado del mantenedor-->
+    <script type="text/javascript">
         $(document).ready(function () {
             $('#userList').DataTable({
                 language: {
@@ -73,13 +73,24 @@
             nom = fila.find('td:eq(0)').text();
             console.log(cod)
             console.log(nom)
-            $("#txtCodEdit").val(cod.trim())           
+            $("#txtCodEdit").val(cod.trim())
             $("#txtNomEdit").val(nom.trim())
         });
     </script>
 </head>
 
 <body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">×</span></button>
+        {{message}}
+    </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
@@ -105,8 +116,9 @@
                     </li>
                     <li>
                         <div class="btn-group">
-                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Gestiones
+                            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                Gestiones
                             </button>
                             <div class="dropdown-menu" style="width: max-content;">
                                 <a class="nav-link" href="{{ url_for('country')}}">Gestión Paises</a>
@@ -158,13 +170,12 @@
                                             <td>{{city.1}}</td>
                                             <td>{{city.2}}</td>
                                             <td>
-                                                <a class="nav justify-content-center btnEditar" data-toggle="tab" href="#formEdit"><i
-                                                        class="fas fa-edit"></i></a>
+                                                <a class="nav justify-content-center btnEditar" data-toggle="tab"
+                                                    href="#formEdit"><i class="fas fa-edit"></i></a>
                                             </td>
                                             <td>
-                                                <a class="nav justify-content-center" 
-                                                    href="/mantenedorCiudad/{{city.0}}"><i
-                                                        class="fas fa-trash"></i></a>
+                                                <a class="nav justify-content-center"
+                                                    href="/mantenedorCiudad/{{city.0}}"><i class="fas fa-trash"></i></a>
                                             </td>
                                         </tr>
                                         {% endfor %}
@@ -208,7 +219,7 @@
                                     <div class="col-lg-12 text-center">
                                         <input type="reset" class="btn btn-secondary" value="Cancelar">
                                         <input id="btnAcept" name="btnAcept" type="submit" class="btn btn-primary"
-                                        value="Insertar">
+                                            value="Insertar">
                                     </div>
                                 </div>
                             </form>
@@ -236,7 +247,8 @@
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-lg-12 text-center">
-                                        <input onclick="window.location.reload()" style="width: 100px;" class="btn btn-secondary" value="Cancelar">
+                                        <input onclick="window.location.reload()" style="width: 100px;"
+                                            class="btn btn-secondary" value="Cancelar">
                                         <input id="btnEditar" name="btnAcept" type="submit" class="btn btn-primary"
                                             value="Editar">
                                     </div>

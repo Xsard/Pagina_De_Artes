@@ -23,10 +23,21 @@
     <!--CSS y JS personales-->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/about.css')}}">
     <script src="{{ url_for('static',filename='scripts/sidebar.js')}}"></script>
-    
+
 </head>
 
 <body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+    <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span
+                aria-hidden="true">×</span></button>
+        {{message}}
+    </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01"
@@ -45,7 +56,8 @@
                         <a class="nav-link" href="{{ url_for('serviceslog')}}"> Servicios</a>
                     </li>
                     <li class="nav-item active">
-                        <a class="nav-link" href="{{ url_for('piece')}}"> Subir Obra <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{ url_for('piece')}}"> Subir Obra <span
+                                class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ url_for('subastas')}}"> Subastas</a>
@@ -79,7 +91,7 @@
                     ¡Exelente!
                 </div>
             </div>
-            <div class="col-md-3 mb-3"  style="max-width: 510px">
+            <div class="col-md-3 mb-3" style="max-width: 510px">
                 <label for="validationTooltip04" style="color: white;">Estilo</label>
                 <select class="custom-select" id="validationTooltip04" name="txtEstilo" required>
                     <option selected disabled value="">Estilos aquí...</option>
@@ -99,18 +111,19 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="form-group">
             <label for="exampleFormControlTextarea1" style="color: white;">Descripción</label>
-            <textarea class="form-control"  style="min-width: 500px; width: 6vmin;" id="exampleFormControlTextarea1" rows="3" name="txtDesc"></textarea>
+            <textarea class="form-control" style="min-width: 500px; width: 6vmin;" id="exampleFormControlTextarea1"
+                rows="3" name="txtDesc"></textarea>
         </div>
         <div class="custom-file col-md-12 mb-3">
-            <input type="file" class="custom-file-input" id="file-input" name="imgObra"/>
+            <input type="file" class="custom-file-input" id="file-input" name="imgObra" />
             <label class="custom-file-label" for="file-input" style="width: 400px;">Seleccionar Archivo</label>
         </div>
         <div class="imgCentro">
             <img id="imgSalida" class="center-block" width="50%" height="50%" src=""
-                style="margin-left: auto; margin-right: auto; display: none;"/>
+                style="margin-left: auto; margin-right: auto; display: none;" />
         </div>
         <input class="btn btn-primary" style="margin-top: 5%;" type="submit" name="btnAcept" value="Subir">
     </form>
@@ -122,22 +135,26 @@
                 <div class="col-sm-9 ws-footer-col">
                     <a href="{{ url_for('homelog') }}">
                         <img src="{{url_for('static', filename='img/logo.png')}}" class="img"
-                        style="margin-right: initial; width: 300px; height: 250px;">
+                            style="margin-right: initial; width: 300px; height: 250px;">
                     </a>
                 </div>
                 <ul style="margin-right:initial;">
                     <h1 style="color: black; margin-left: 20px; padding-left: 15px;">Soportes</h1>
                     <li style="margin-left: 35px;">
-                        <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('aboutlog') }}">Nosotros</a>
+                        <a class="text-decoration-none" style="font-size: 25px;"
+                            href="{{ url_for('aboutlog') }}">Nosotros</a>
                     </li>
                     <li style="margin-left: 35px ;">
-                        <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('serviceslog') }}">Servicios</a>
+                        <a class="text-decoration-none" style="font-size: 25px;"
+                            href="{{ url_for('serviceslog') }}">Servicios</a>
                     </li>
                     <li style="margin-left: 35px ;">
-                        <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('piece') }}">Subir Obra</a>
+                        <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('piece') }}">Subir
+                            Obra</a>
                     </li>
                     <li style="margin-left: 35px ;">
-                        <a class="text-decoration-none" style="font-size: 25px;" href="{{ url_for('subastas') }}">Subastas</a>
+                        <a class="text-decoration-none" style="font-size: 25px;"
+                            href="{{ url_for('subastas') }}">Subastas</a>
                     </li>
                 </ul>
             </div>
@@ -145,7 +162,7 @@
     </footer>
     <div class="footer">
         <div style="text-align-last: center;">
-        <p style="color: white;">© 2020 Copyright ArtSpace</p>
+            <p style="color: white;">© 2020 Copyright ArtSpace</p>
         </div>
     </div>
     <!--FIN FOOTER-->
