@@ -20,7 +20,7 @@ def allowed_file(filename):
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.secret_key = "hello"
+app.secret_key = "thisisaencryptedmessage"
 
 
 @app.route('/')
@@ -195,9 +195,14 @@ def auction(id):
                     puja = int(request.form['txtPuja'+id])
                     obra = request.form['txtObra'+id]
                     mejorPuja = int(request.form.get('txtMejor'+id))
+                    pBase = int(request.form['txtBase'+id])
                     if mejorPuja<puja:
-                        subasta = Subastas.Subasta(obra, username, puja)
-                        Subastar.insert(subasta)
+                        if pBase<puja:
+                            subasta = Subastas.Subasta(obra, username, puja)
+                            Subastar.insert(subasta)
+                        else:
+                            flash("No se puede ofertar un valor menor al precio base, lo sentimos.")
+                            return redirect(url_for('subastas'))    
                     else:
                         flash("No se puede ofertar un valor menor a la puja más alta, lo sentimos.")
                         return redirect(url_for('subastas'))
